@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'bloodcrow';
+    src: url('../fontes/blood-krow/bloodcrow.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+body {
+background: linear-gradient(-90deg, rgb(47, 0, 0), red,  rgb(47, 0, 0));
+}
+/* Container principal - Ativa o Flexbox para alinhar os itens lado a lado */
+#mangas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Transforma o container em um flex container */
+    /* flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não houver espaço */
+    /* justify-content: center; */  /* Centraliza os itens flexíveis na linha horizontalmente */
+    gap: 20px; /* Adiciona um espaço entre os itens */
+    padding: 20px;/* Adiciona algum espaço interno */
+}
+
+/* Container de cada item (Imagem + Título) */
+.manga-item {
+    width: 180px;
+    height: auto; /* Define a largura para o item, baseada na largura da sua imagem */
+    margin: 0 auto;
+}
+.manga-item img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+/* Estilização do parágrafo/título */
+.manga-item p {
+    margin-top: 5px; /* Adiciona um pequeno espaço entre a imagem e o título */
+    text-align: center;
+    font-size: 0.9em; /* Tamanho da fonte menor, se desejar */
+    /* Remove o align="center" do HTML e centraliza aqui */
+}
+#divLogin {
+    background-color: gray;
+    border-radius: 3px;
+}

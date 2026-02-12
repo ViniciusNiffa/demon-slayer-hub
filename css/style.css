@@ -1,0 +1,66 @@
+/* Opcional: Estilo para o H1 para remover o align="center" e centralizar com CSS */
+.h1 {
+    text-align: center;
+}
+.p{
+    text-align: center;
+    font-size: 2px;
+}
+.h2{
+    text-align: center;
+}
+.pJustify{
+    text-align: justify;
+}
+.fonte-dms{
+    font-family: 'bloodcrow';
+    font-weight: bold;
+}
+
+.cards-container {
+    background-color: violet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+#cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.426);
+    width: 100%;
+    flex-direction: column;
+}
+#logo {
+    width: 100px;
+    height: auto;
+    justify-content: left;
+}
+#navMenu {
+    text-align: center;
+    margin-right: 30%;
+}
+#banner{
+    width: 100%;
+}
