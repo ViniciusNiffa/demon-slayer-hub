@@ -54,7 +54,8 @@
     align-items: left;
 }
 #navMenu {
-    margin-right: 30%;
+    margin-right: 20%;
+    margin-left: 20%;
 /*     background-color: pink; */
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
@@ -72,4 +73,10 @@
     background: linear-gradient(to right,red,black,red);
     position: fixed;
     height: 110px;
+}
+#perfil{
+    width: 100px;
+    height: auto;
+    align-items: right;
+    justify-content: space-between;
 }
