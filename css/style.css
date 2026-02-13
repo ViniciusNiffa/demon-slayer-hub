@@ -42,25 +42,34 @@
     transform: scale(1.1);
 }
 #cabecalho {
-/*     display: flex; */
     justify-content: space-between;
     align-items: center;
     height: auto;
-    position: fixed;
-    background-color: rgba(255, 88, 88, 0.37);
     width: 100%;
-/*     flex-direction: column; */
+    flex-direction: column;
 }
 #logo {
     width: 100px;
     height: auto;
-    justify-content: space-between;
+    align-items: left;
 }
 #navMenu {
-    text-align: center;
     margin-right: 30%;
-    background-color: pink;
+/*     background-color: pink; */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    padding: 45px;
+    text-align: center;
 }
 #banner{
     width: 100%;
+    margin-top: 110px;
+}
+#menu2{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    background: linear-gradient(to right,red,black,red);
+    position: fixed;
+    height: 110px;
 }
