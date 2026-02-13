@@ -38,7 +38,7 @@
     transition: transform 0.5s ease;
 }
 
-.card:hover{
+.card:hover,#logo:hover,#arcos:hover,#mangas:hover,#personagens:hover,#respiracoes:hover,#descubra:hover,#mundo:hover,#fanarts:hover{
     transform: scale(1.1);
 }
 #cabecalho {
@@ -46,25 +46,24 @@
     align-items: center;
     height: auto;
     width: 100%;
-    flex-direction: column;
+/*     flex-direction: column; */
 }
 #logo {
     width: 100px;
     height: auto;
     align-items: left;
+    transition: transform 0.5s ease;
 }
 #navMenu {
-    margin-right: 20%;
-    margin-left: 20%;
 /*     background-color: pink; */
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
     padding: 45px;
-    text-align: center;
+    margin: 0 auto;
+    justify-content: space-between;;
 }
-#banner{
-    width: 100%;
-    margin-top: 110px;
+#arcos,#mangas,#personagens,#respiracoes,#descubra,#mundo,#fanarts {
+    transition: transform 0.5s ease;
 }
 #menu2{
     justify-content: space-between;
@@ -72,11 +71,34 @@
     width: 100%;
     background: linear-gradient(to right,red,black,red);
     position: fixed;
-    height: 110px;
+    height: 100px;
 }
 #perfil{
     width: 100px;
     height: auto;
     align-items: right;
     justify-content: space-between;
+}
+#banner{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    background-image: url('../img/pastaBanner/casteloInfinito_fundo.png');
+}
+#bannerZ{
+    width: 400px;
+    height: auto;
+    margin-top: 100px;
+}
+#bannerT{
+    width: 500px;
+    height: auto;
+    margin-top: 100px;
+    align-items: center;
+}
+#bannerI{
+    width: 400px;
+    height: auto;
+    margin-top: 100px;
+    align-items: center;
 }
