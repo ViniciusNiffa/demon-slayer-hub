@@ -5,7 +5,8 @@
     font-style: normal;
 }
 body {
-background: linear-gradient(-90deg, rgb(47, 0, 0), red,  rgb(47, 0, 0));
+/*     position: fixed;
+background-image: url(../img/castelo-infinito.png); */
 }
 /* Container principal - Ativa o Flexbox para alinhar os itens lado a lado */
 #mangas-container {
@@ -46,4 +47,29 @@ background: linear-gradient(-90deg, rgb(47, 0, 0), red,  rgb(47, 0, 0));
     width: 100%;
     height: 100%;
     position: fixed;
+}
+#fanartMes{
+    width: 33.33%;
+    display: flex;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0.486),red,rgba(0, 0, 0, 0.486));
+    flex-direction: column;
+    border-radius: 20px;
+}
+#fanartImg{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+#fundoCabecalho{
+    background-image: url(../img/pastaBanner/casteloInfinito_fundo.png);
+}
+main{
+    width: 80%;
+    margin: 0 auto;
 }

@@ -69,7 +69,7 @@
     justify-content: space-between;
     display: flex;
     width: 100%;
-    background: linear-gradient(to right,red,black,red);
+    background-color: rgb(182, 0, 45);
     position: fixed;
     height: 100px;
 }
@@ -83,7 +83,7 @@
     width: 100%;
     display: flex;
     justify-content:space-between;
-    background-image: url('../img/pastaBanner/casteloInfinito_fundo.png');
+/*     background-image: url('../img/pastaBanner/casteloInfinito_fundo.png'); */
 }
 #bannerZ{
     width: 400px;
