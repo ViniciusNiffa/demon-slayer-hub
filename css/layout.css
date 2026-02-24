@@ -5,8 +5,7 @@
     font-style: normal;
 }
 body {
-/*     position: fixed;
-background-image: url(../img/castelo-infinito.png); */
+background-image: url(../img/castelo-infinito.png);
 }
 /* Container principal - Ativa o Flexbox para alinhar os itens lado a lado */
 #mangas-container {
@@ -15,7 +14,7 @@ background-image: url(../img/castelo-infinito.png); */
     /* flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não houver espaço */
     /* justify-content: center; */  /* Centraliza os itens flexíveis na linha horizontalmente */
     gap: 20px; /* Adiciona um espaço entre os itens */
-    padding: 20px;/* Adiciona algum espaço interno */
+    padding: 20px;/* Adiciona algum espaço interno*/
 }
 
 /* Container de cada item (Imagem + Título) */
@@ -54,7 +53,7 @@ background-image: url(../img/castelo-infinito.png); */
     height: auto;
     margin: 0 auto;
     justify-content: center;
-    background: linear-gradient(-90deg, rgba(0, 0, 0, 0.486),red,rgba(0, 0, 0, 0.486));
+/*     background-color: rgb(182, 0, 45); */
     flex-direction: column;
     border-radius: 20px;
 }
@@ -72,4 +71,7 @@ background-image: url(../img/castelo-infinito.png); */
 main{
     width: 80%;
     margin: 0 auto;
+}
+#fundo{
+    background-color: rgb(182, 0, 45);;
 }
