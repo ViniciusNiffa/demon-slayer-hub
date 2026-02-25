@@ -6,6 +6,7 @@
 }
 body {
 background-image: url(../img/castelo-infinito.png);
+background-attachment: fixed;
 }
 /* Container principal - Ativa o Flexbox para alinhar os itens lado a lado */
 #mangas-container {
@@ -34,18 +35,19 @@ background-image: url(../img/castelo-infinito.png);
 .manga-item p {
     margin-top: 5px; /* Adiciona um pequeno espaço entre a imagem e o título */
     text-align: center;
-    font-size: 0.9em; /* Tamanho da fonte menor, se desejar */
+    font-size: 0.9em;
+    font-family: 'bloodcrow';
+     /* Tamanho da fonte menor, se desejar */
     /* Remove o align="center" do HTML e centraliza aqui */
 }
 #divLogin {
+    width: 400px;
+    height: 500px;
     background-color: gray;
     border-radius: 3px;
-}
-#imagemFundo{
-/*     background-image: url('../img/pastaBanner/casteloInfinito_fundo.png'); */
-    width: 100%;
-    height: 100%;
-    position: fixed;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
 }
 #fanartMes{
     width: 33.33%;
@@ -69,9 +71,110 @@ background-image: url(../img/castelo-infinito.png);
     background-image: url(../img/pastaBanner/casteloInfinito_fundo.png);
 }
 main{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 #fundo{
-    background-color: rgb(182, 0, 45);;
+    background-color: rgb(182, 0, 45);
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.card:hover, #logo:hover, #perfil:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+#navMenu a:hover{
+    color:red;
+    text-shadow: 0 0 4px red;
+}
+#cabecalho {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+#logo {
+    width: 100px;
+    height: auto;
+    align-items: left;
+/*     background-color: aqua; */
+}
+#navMenu {
+/*     background-color: pink; */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    padding: 45px;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: flex;
+    gap: 50px;
+}
+#navMenu a{
+    color: green;
+}
+/* #arcos,#mangas,#personagens,#respiracoes,#descubra,#mundo,#fanarts {
+
+} */
+#menu2{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    background-color: rgb(182, 0, 45);
+    position: fixed;
+    height: 100px;
+}
+#perfil{
+    width: 100px;
+    height: auto;
+    align-items: right;
+    justify-content: space-between;
+/*     background-color: blueviolet; */
+    transition: transform 0.5s ease;
+}
+#banner{
+/*     background-color: aqua; */
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    gap: 50px;
+/*     justify-content:space-between; */
+/*     background-image: url('../img/pastaBanner/casteloInfinito_fundo.png'); */
+
+}
+#bannerZ{
+    width: 32%;
+    height: auto;
+    margin-top: 100px;
+}
+#bannerT{
+    width: 36%;
+    height: auto;
+    margin-top: 100px;
+    align-items: center;
+}
+#bannerI{
+    width: 32%;
+    height: auto;
+    margin-top: 100px;
+    align-items: center;
 }
