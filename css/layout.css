@@ -7,6 +7,7 @@
 body {
 background-image: url(../img/castelo-infinito.png);
 background-attachment: fixed;
+padding-top: 110px;
 }
 /* Container principal - Ativa o Flexbox para alinhar os itens lado a lado */
 #mangas-container {
@@ -16,6 +17,10 @@ background-attachment: fixed;
     /* justify-content: center; */  /* Centraliza os itens flexíveis na linha horizontalmente */
     gap: 20px; /* Adiciona um espaço entre os itens */
     padding: 20px;/* Adiciona algum espaço interno*/
+    background-color: rgb(182, 0, 45);
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 /* Container de cada item (Imagem + Título) */
@@ -48,6 +53,8 @@ background-attachment: fixed;
     margin: 0 auto;
     align-items: center;
     text-align: center;
+/*     margin-top: 30%;
+    margin-bottom: 30%; */
 }
 #fanartMes{
     width: 33.33%;
@@ -103,7 +110,7 @@ main{
     transform: scale(1.1);
     transition: transform 0.5s ease;
 }
-#navMenu a:hover{
+#navMenu a:hover, #navMenu a#active:hover{
     color:red;
     text-shadow: 0 0 4px red;
 }
@@ -130,7 +137,8 @@ main{
     gap: 50px;
 }
 #navMenu a{
-    color: green;
+    color: rgb(70, 176, 119);
+/*     padding: 10px 15px; */
 }
 /* #arcos,#mangas,#personagens,#respiracoes,#descubra,#mundo,#fanarts {
 
@@ -141,15 +149,18 @@ main{
     width: 100%;
     background-color: rgb(182, 0, 45);
     position: fixed;
-    height: 100px;
+    top: 0;
 }
 #perfil{
-    width: 100px;
+    width: 50px;
     height: auto;
     align-items: right;
     justify-content: space-between;
 /*     background-color: blueviolet; */
     transition: transform 0.5s ease;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 25px;
 }
 #banner{
 /*     background-color: aqua; */
@@ -159,22 +170,27 @@ main{
     gap: 50px;
 /*     justify-content:space-between; */
 /*     background-image: url('../img/pastaBanner/casteloInfinito_fundo.png'); */
-
 }
 #bannerZ{
     width: 32%;
     height: auto;
-    margin-top: 100px;
 }
 #bannerT{
     width: 36%;
     height: auto;
-    margin-top: 100px;
     align-items: center;
 }
 #bannerI{
     width: 32%;
     height: auto;
-    margin-top: 100px;
     align-items: center;
+}
+#navMenu a#active{
+    color: black;
+    border-radius: 5px;
+}
+#navMenu ul{
+    list-style: none;
+    display: flex;
+    gap: 50px;
 }
