@@ -12,15 +12,14 @@ padding-top: 110px;
 /* Container principal - Ativa o Flexbox para alinhar os itens lado a lado */
 #mangas-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Transforma o container em um flex container */
-    /* flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não houver espaço */
-    /* justify-content: center; */  /* Centraliza os itens flexíveis na linha horizontalmente */
-    gap: 20px; /* Adiciona um espaço entre os itens */
-    padding: 20px;/* Adiciona algum espaço interno*/
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px; 
+    padding: 20px;
     background-color: rgb(182, 0, 45);
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 10px;
 }
 
 /* Container de cada item (Imagem + Título) */
@@ -38,12 +37,11 @@ padding-top: 110px;
 
 /* Estilização do parágrafo/título */
 .manga-item p {
-    margin-top: 5px; /* Adiciona um pequeno espaço entre a imagem e o título */
+    margin-top: 5px;
     text-align: center;
     font-size: 0.9em;
     font-family: 'bloodcrow';
-     /* Tamanho da fonte menor, se desejar */
-    /* Remove o align="center" do HTML e centraliza aqui */
+    color: white;
 }
 #divLogin {
     width: 400px;
@@ -51,10 +49,6 @@ padding-top: 110px;
     background-color: gray;
     border-radius: 3px;
     margin: 0 auto;
-    align-items: center;
-    text-align: center;
-/*     margin-top: 30%;
-    margin-bottom: 30%; */
 }
 #fanartMes{
     width: 33.33%;
@@ -77,12 +71,8 @@ padding-top: 110px;
 #fundoCabecalho{
     background-image: url(../img/pastaBanner/casteloInfinito_fundo.png);
 }
-main{
-    width: 100%;
-    margin: 0 auto;
-}
 #fundo{
-    background-color: rgb(182, 0, 45);
+    background-color: rgb(139, 0, 0);
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
@@ -111,23 +101,21 @@ main{
     transition: transform 0.5s ease;
 }
 #navMenu a:hover, #navMenu a#active:hover{
-    color:red;
-    text-shadow: 0 0 4px red;
+    color: black;
+    text-shadow: 0 0 4px black;
 }
-#cabecalho {
+/* #cabecalho {
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: auto;
-}
+} */
 #logo {
     width: 100px;
     height: auto;
     align-items: left;
-/*     background-color: aqua; */
 }
 #navMenu {
-/*     background-color: pink; */
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
     padding: 45px;
@@ -135,19 +123,17 @@ main{
     justify-content: space-between;
     display: flex;
     gap: 50px;
+    height: 100px;
 }
 #navMenu a{
-    color: rgb(70, 176, 119);
-/*     padding: 10px 15px; */
+    color: rgb(15, 156, 79);
 }
-/* #arcos,#mangas,#personagens,#respiracoes,#descubra,#mundo,#fanarts {
-
-} */
 #menu2{
     justify-content: space-between;
     display: flex;
     width: 100%;
-    background-color: rgb(182, 0, 45);
+    background-color: rgb(139, 0, 0);
+/*     background-color: rgb(182, 0, 45); */
     position: fixed;
     top: 0;
 }
@@ -163,13 +149,10 @@ main{
     margin-right: 25px;
 }
 #banner{
-/*     background-color: aqua; */
     width: 80%;
     display: flex;
     margin: 0 auto;
     gap: 50px;
-/*     justify-content:space-between; */
-/*     background-image: url('../img/pastaBanner/casteloInfinito_fundo.png'); */
 }
 #bannerZ{
     width: 32%;
