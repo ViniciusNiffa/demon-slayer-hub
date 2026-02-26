@@ -44,11 +44,49 @@ padding-top: 110px;
     color: white;
 }
 #divLogin {
-    width: 400px;
-    height: 500px;
-    background-color: gray;
-    border-radius: 3px;
+    width: 500px;
+    height: 600px;
+    background-color: rgb(139, 0, 0);
+    border-radius: 50px;
     margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+#divLogin img{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+#insc{
+    color: black;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+#insc a{
+    color: rgb(15, 156, 79);
+}
+#loginSenha{
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+#loginSenha input{
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+#loginSenha input:focus{
+    outline: none;
+    border: 2px solid rgb(15, 156, 79);
+    box-shadow: 0 0 5px rgb(15, 156, 79);
 }
 #fanartMes{
     width: 33.33%;
@@ -68,14 +106,11 @@ padding-top: 110px;
     margin-left: 20%;
     margin-right: 20%;
 }
-#fundoCabecalho{
-    background-image: url(../img/pastaBanner/casteloInfinito_fundo.png);
-}
 #fundo{
     background-color: rgb(139, 0, 0);
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 1600px;
+    margin-left: 155px;
+    margin-right: 155px;
 }
 .cards-container {
     display: flex;
