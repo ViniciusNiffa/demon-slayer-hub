@@ -13,7 +13,7 @@
 body {
 background-image: url(../img/castelo-infinito.png);
 background-attachment: fixed;
-padding-top: 110px;
+padding-top: 100px;
 }
 /* Container principal - Ativa o Flexbox para alinhar os itens lado a lado */
 .cards-container {
