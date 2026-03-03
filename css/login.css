@@ -1,0 +1,45 @@
+#divLogin {
+    width: 500px;
+    height: 600px;
+    background-color: rgb(139, 0, 0);
+    border-radius: 50px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+#divLogin img{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+#insc{
+    color: black;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+#insc a{
+    color: rgb(15, 156, 79);
+}
+#loginSenha{
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+#loginSenha input{
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+#loginSenha input:focus{
+    outline: none;
+    border: 2px solid rgb(15, 156, 79);
+    box-shadow: 0 0 5px rgb(15, 156, 79);
+}

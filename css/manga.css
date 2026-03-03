@@ -1,0 +1,33 @@
+#mangas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px; 
+    padding: 20px;
+    background-color: rgb(182, 0, 45);
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 10px;
+}
+
+/* Container de cada item (Imagem + Título) */
+.manga-item {
+    width: 180px;
+    height: auto; /* Define a largura para o item, baseada na largura da sua imagem */
+    margin: 0 auto;
+}
+.manga-item img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+/* Estilização do parágrafo/título */
+.manga-item p {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 0.9em;
+    font-family: 'bloodcrow';
+    color: white;
+}
