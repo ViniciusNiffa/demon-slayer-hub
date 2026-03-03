@@ -1,0 +1,28 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Opcional: evita barra de rolagem se as fotos couberem exato */
+}
+#arcos{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    gap: 0;
+}
+#arco1, #arco2, #arco3, #arco4, #arco5, #arco6{
+    width: 16.66%;
+    box-shadow: 0 0 10px black;
+}
+#arco1 img, #arco2 img, #arco3 img, #arco4 img, #arco5 img, #arco6 img{
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+#arco1:hover,#arco2:hover,#arco3:hover,#arco4:hover,#arco5:hover,#arco6:hover{
+    filter: blur(4px);
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}

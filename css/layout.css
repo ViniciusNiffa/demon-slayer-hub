@@ -2,7 +2,7 @@
     justify-content: space-between;
     display: flex;
     width: 100%;
-    background: linear-gradient(to right, red, black, red);
+    background: linear-gradient(to right,#800505,#460808, #800505);
 /*     background-color: rgb(182, 0, 45); */
     position: fixed;
     top: 0;
@@ -40,8 +40,8 @@ padding-top: 110px;
     transition: transform 0.5s ease;
 }
 #navMenu a:hover, #navMenu a#active:hover{
-    color: black;
-    text-shadow: 0 0 4px black;
+    color: white;
+    text-shadow: 0 0 4px white;
 }
 #cabecalho {
     justify-content: space-between;
@@ -82,7 +82,7 @@ padding-top: 110px;
     margin-right: 25px;
 }
 #navMenu a#active{
-    color: black;
+    color: white;
     border-radius: 5px;
 }
 #navMenu ul{

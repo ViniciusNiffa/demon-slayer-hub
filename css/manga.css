@@ -3,7 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px; 
     padding: 20px;
-    background-color: rgb(182, 0, 45);
+    background: radial-gradient(#800505, #460808, #800505);
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
@@ -21,6 +21,7 @@
     height: auto;
     display: block;
     border-radius: 6px;
+    box-shadow: 0 0 5px black
 }
 
 /* Estilização do parágrafo/título */
