@@ -1,19 +1,8 @@
-#menu2{
-    justify-content: space-between;
-    display: flex;
-    width: 100%;
-    background: linear-gradient(to right,#800505,#460808, #800505);
-/*     background-color: rgb(182, 0, 45); */
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    height: 100px;
-    border-bottom: 1px solid black;
-}
 body {
 background-image: url(../img/castelo-infinito.png);
 background-attachment: fixed;
 padding-top: 100px;
+background-size: cover;
 }
 /* Container principal - Ativa o Flexbox para alinhar os itens lado a lado */
 .cards-container {
@@ -38,57 +27,6 @@ padding-top: 100px;
 .card:hover, #logo:hover, #perfil:hover{
     transform: scale(1.1);
     transition: transform 0.5s ease;
-}
-#navMenu a:hover, #navMenu a#active:hover{
-    color: white;
-    text-shadow: 0 0 4px white;
-}
-#cabecalho {
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: auto;
-}
-#logo {
-    width: 100px;
-    height: auto;
-    align-items: left;
-}
-#navMenu {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 15px;
-    padding: 45px;
-    margin: 0 auto;
-    justify-content: space-between;
-    display: flex;
-    gap: 50px;
-    height: 100px;
-}
-#navMenu a{
-    color: rgb(15, 156, 79);
-}
-#menu2:hover #capa{
-    transform:translateX(-100%);
-}
-#perfil{
-    width: 50px;
-    height: auto;
-    align-items: right;
-    justify-content: space-between;
-/*     background-color: blueviolet; */
-    transition: transform 0.5s ease;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    margin-right: 25px;
-}
-#navMenu a#active{
-    color: white;
-    border-radius: 5px;
-}
-#navMenu ul{
-    list-style: none;
-    display: flex;
-    gap: 50px
 }
 @font-face {
     font-family: 'bloodcrow';

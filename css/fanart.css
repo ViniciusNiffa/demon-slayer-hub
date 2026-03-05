@@ -1,12 +1,19 @@
+#principal{
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #460808;
+}
 #fanartMes{
-    width: 33.33%;
+    width: 50%;
     display: flex;
     height: auto;
     margin: 0 auto;
     justify-content: center;
-/*     background-color: rgb(182, 0, 45); */
     flex-direction: column;
     border-radius: 20px;
+    padding: 100px;
 }
 #fanartImg{
     width: 60%;

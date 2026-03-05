@@ -1,31 +1,12 @@
 #fundo{
     background-color: #260707;
     width: 80%;
+    height: auto;
     margin-left: 10%;
     margin-right: 10%;
     padding: 15px;
     border-radius: 20px;
     border: 5px solid black;
-}
-#banner{
-    width: 80%;
-    display: flex;
-    margin: 0 auto;
-    gap: 50px;
-}
-#bannerZ{
-    width: 32%;
-    height: auto;
-}
-#bannerT{
-    width: 36%;
-    height: auto;
-    align-items: center;
-}
-#bannerI{
-    width: 32%;
-    height: auto;
-    align-items: center;
 }
 #enredo, #sobreSite{
     border-radius: 10px;
@@ -36,7 +17,7 @@
     box-sizing: border-box;
     padding: 10px;
     margin-bottom: 15px;
-    background-color: #460808;
+    background-color: #700000;
 }
 #enredo p, #sobreSite p{
     /* color: rgb(139, 0, 0); */

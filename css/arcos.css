@@ -16,6 +16,7 @@ body, html {
     position: relative;
     flex: 1;
     overflow: hidden;
+    cursor: pointer;
 }
 #arco1 img, #arco4 img, #arco5 img, #arco6 img{
     flex: 1;

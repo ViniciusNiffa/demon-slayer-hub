@@ -9,16 +9,15 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/main.css">
-
+  <link rel="stylesheet" href="css/menu.css">
 </head>
 
 <body>
   <main>
     <header id="cabecalho">
-      <nav id="menu2">
-        <div id="capa"></div>
+      <nav id="topnav" id="myTopnav">
         <div><a href="./index.html"><img id="logo" src="img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
-              title="Logo Demon Slayer" /></a></div>
+          title="Logo Demon Slayer" /></a></div>
         <nav id="navMenu">
           <a href="index.html" id="active">Início</a>
           <a href="./pages/arcos.html">Arcos</a>
@@ -31,6 +30,8 @@
         </nav>
         <a href="./pages/login.html"><img id="perfil" src="img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
             title="Imagem do usuario" /></a>
+            <a href="javascript:void(0);"style="font-size: 25px;" id="icon"
+            onclick="myFunction()">&#9776;</a>
       </nav>
       <div id="banner"><img id="bannerZ" src="img/pastaBanner/zenitsuBanner.png" alt="Banner da página inicial do Site"
           title="Banner da página inicial do site" /><img id="bannerT" src="img/pastaBanner/tanjiroBanner.png"
@@ -120,6 +121,20 @@
         </p>
       </section>
     </div>
+    <script>
+      /*
+      Função do Javascript para gerenciar o menu responsivo.
+      Vamos criar uma função para aplicar a responsividade no menu
+      */
+     function myFunction(){
+      var x = document.getElementById("myTopnav");
+      if(x.idName === "topnav"){
+          x.className += " responsive";//Abrir e executar o icone do menu
+      }else{
+          x.idName = "topnav"; //Recolha o menu pelo icone
+      }
+     }
+  </script>
   </main>
 </body>
 
