@@ -65,7 +65,7 @@ body, html {
     opacity: 1;
 }
 #arco1 img:hover,#arco2 img:hover,#arco3 img:hover,#arco4 img:hover,#arco5 img:hover,#arco6 img:hover{
-    filter: blur(4px);
+    filter: blur(7px);
     transform: scale(1.05);
     transition: transform 0.5s ease;
 }

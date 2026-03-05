@@ -4,34 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Demon Slayer Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/menu.js"></script>
 </head>
 
 <body>
   <main>
     <header id="cabecalho">
-      <nav id="topnav" id="myTopnav">
+      <nav class="topnav" id="myTopnav">
         <div><a href="./index.html"><img id="logo" src="img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
-          title="Logo Demon Slayer" /></a></div>
-        <nav id="navMenu">
-          <a href="index.html" id="active">Início</a>
-          <a href="./pages/arcos.html">Arcos</a>
-          <a href="./pages/mangas.html">Mangas</a>
-          <a href="./pages/personagens.html">Personagens</a>
-          <a href="./pages/respiracoes.html">Respirações</a>
-          <a href="./pages/descubra_respiracao.html">Descubra a sua respiração</a>
-          <a href="./pages/mundo.html">Mundo de Demon Slayer</a>
-          <a href="./pages/fanarts.html">Fanarts da comunidade</a>
-        </nav>
-        <a href="./pages/login.html"><img id="perfil" src="img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
+              title="Logo Demon Slayer" /></a></div>
+        <div id="menuPerfil">
+          <div id="divMenu">
+            <a href="index.html" id="active">Início</a>
+            <a href="./pages/arcos.html">Arcos</a>
+            <a href="./pages/mangas.html">Mangas</a>
+            <a href="./pages/personagens.html">Personagens</a>
+            <a href="./pages/respiracoes.html">Respirações</a>
+            <a href="./pages/descubra_respiracao.html">Descubra a sua respiração</a>
+            <a href="./pages/mundo.html">Mundo de Demon Slayer</a>
+            <a href="./pages/fanarts.html">Fanarts da comunidade</a>
+          </div>
+          <a href="./pages/login.html"><img id="perfil" src="img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
             title="Imagem do usuario" /></a>
-            <a href="javascript:void(0);"style="font-size: 25px;" id="icon"
-            onclick="myFunction()">&#9776;</a>
+        </div>
+        <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
       </nav>
       <div id="banner"><img id="bannerZ" src="img/pastaBanner/zenitsuBanner.png" alt="Banner da página inicial do Site"
           title="Banner da página inicial do site" /><img id="bannerT" src="img/pastaBanner/tanjiroBanner.png"
@@ -121,20 +124,6 @@
         </p>
       </section>
     </div>
-    <script>
-      /*
-      Função do Javascript para gerenciar o menu responsivo.
-      Vamos criar uma função para aplicar a responsividade no menu
-      */
-     function myFunction(){
-      var x = document.getElementById("myTopnav");
-      if(x.idName === "topnav"){
-          x.className += " responsive";//Abrir e executar o icone do menu
-      }else{
-          x.idName = "topnav"; //Recolha o menu pelo icone
-      }
-     }
-  </script>
   </main>
 </body>
 
