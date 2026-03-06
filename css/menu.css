@@ -1,39 +1,45 @@
-.topnav{
+.topnav {
     display: flex;
     width: 100%;
-    background: linear-gradient(to right,#800505,#460808, #800505);
+    background: linear-gradient(to right, #800505, #460808, #800505);
     position: fixed;
     top: 0;
     z-index: 1;
     height: 100px;
     border-bottom: 1px solid black;
 }
+
 #cabecalho {
     display: flex;
     width: 100%;
     height: auto;
 }
-#menuPerfil{
+
+#menuPerfil {
     width: 100%;
 }
+
 #logo {
     margin-top: 8px;
     margin-bottom: 100000000px;
     width: 100px;
     height: auto;
 }
+
 #divMenu {
     padding-top: 42.5px;
     margin: 0 auto;
     display: flex;
     gap: 50px;
 }
-#divMenu a{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+#divMenu a {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
-    color: rgb(15, 156, 79);
+    color: black
 }
-#perfil{
+
+#perfil {
     width: 50px;
     height: auto;
     align-items: right;
@@ -45,96 +51,129 @@
     float: right;
     z-index: 100;
 }
-#logo:hover, #perfil:hover{
+
+#logo:hover,
+#perfil:hover {
     transition: transform 0.5s ease;
-    transform: scale(1.1);  
+    transform: scale(1.1);
 }
-#divMenu a#active{
+
+#divMenu a#active {
     color: white;
     border-radius: 5px;
 }
-.topnav #icon{
+
+.topnav #icon {
     display: none;
 }
-#comunidade{
+
+#comunidade {
     float: left;
 }
-#comunidade #btn{
+
+#comunidade #btn {
     font-size: 15px;
     border: none;
     outline: none;
-    color: rgb(15, 156, 79);
+    color: black;
     padding: inherit;
     background-color: inherit;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     cursor: pointer;
 }
-#subComunidade{
+
+#subComunidade {
     display: none;
     position: absolute;
     min-width: 120px;
-    flex-direction: column;
 }
-#subComunidade{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+#comunidade:hover #subComunidade {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
-    color: rgb(15, 156, 79);
+    color: black;
     float: none;
     color: black;
-    padding: 12px 16px;
+    padding: 10px;
     text-decoration: none;
-    display: block;
+    display: flex;
     text-align: left;
+    flex-direction: column;
+    background-color:#800505;
+    border-radius: 5px;
 }
-#divMenu a:hover, #divMenu a#active:hover, #btn:hover{
+
+#divMenu a:hover,
+#divMenu a#active:hover,
+#btn:hover {
     color: white !important;
     text-shadow: 0 0 4px white;
 }
-@media all and (max-width:1500px){
-    #divMenu{
+.hrM{
+    display: none;
+}
+.cMenu{
+    display: none;
+}
+@media all and (max-width:1500px) {
+    #divMenu {
         gap: 40px;
     }
-    #divMenu a{
+
+    #divMenu a {
         font-size: 14px;
     }
 }
-@media all and (max-width:1000px){
-    /* 1. Forçamos a barra a manter o tamanho original, sem crescer */
+
+@media all and (max-width:1000px) {
+
     .topnav.responsive {
-        height: 100px !important; 
-        flex-direction: row !important; /* Impede que os itens fiquem um em cima do outro na barra principal */
+        height: 100px !important;
+        flex-direction: row !important;
         align-items: center;
     }
+
     #divMenu a {
-        display: none; /* Esconde os links no modo normal */
+        display: none;
     }
 
-    /* 2. O Menu que "cai" (o dropdown) */
-    .topnav.responsive #divMenu {
+    #comunidade {
+        display: none;
+    }
+
+
+    .topnav.responsive #divMenu{
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 100px; /* Exatamente a altura da topnav */
+        top: 75px;
         right: 0;
         width: 300px;
         background-color: #460808;
         padding: 20px;
-        border-radius: 0 0 0 10px;
+        border-radius: 10px;
         z-index: 9999;
-        box-shadow: -5px 5px 15px rgba(0,0,0,0.5);
+        box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.5);
+        gap: 20px;
     }
 
-    .topnav.responsive #divMenu a {
-        display: block; /* Mostra os links apenas dentro do menu aberto */
-        margin: 15px 0;
+    .topnav.responsive #divMenu a{
+        display: block;
+        margin: 0 0;
         color: black;
+        border: none;
     }
-
-    /* 3. Ajuste dos ícones para não sumirem ou saltarem */
+    .topnav.responsive #divMenu .hrM{
+        display: block;
+        background-color: black;
+        border: none;
+        height: 1px;
+        margin: 0;
+    }
     #logo {
-        position: static; /* Removi o absolute que pode causar desalinhamento */
-        margin: 10px 0 0 20px; /* Limpeza daquela margem gigante */
+/*         position: static; */
+        margin: 10px 20px;
         width: 100px;
     }
 
@@ -147,30 +186,43 @@
         margin-top: 40px;
         font-size: 15px;
     }
-    .topnav.responsive #icon{
+
+    .topnav.responsive #icon {
         margin-top: 0;
     }
-/*     #perfil{
-        margin-top: 10px;
-    } */
 }
 
-/* Ajuste específico para Celulares */
-@media all and (max-width:700px){
-    .topnav, .topnav.responsive {
+@media all and (max-width:700px) {
+
+    .topnav,
+    .topnav.responsive {
         height: 70px !important;
     }
+
     .topnav.responsive #divMenu {
+        width: 200px;
         top: 70px;
     }
-    #logo { width: 60px; }
-    #perfil{
-        width: 35px;
+
+    .topnav.responsive #divMenu a{
+        font-size: 13px;
     }
-    .topnav{
+    #logo {
+        width: 60px;
+    }
+    #icon{
+        margin-top: 23px;
+    }
+
+    #perfil {
+        width: 35px;
+        margin-top: 15px;
+    }
+    .topnav {
         height: 70px;
     }
-    body{
+
+    body {
         padding-top: 90px;
     }
 }

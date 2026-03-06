@@ -16,3 +16,9 @@
     font-family: 'bloodcrow';
     font-weight: bold;
 }
+.hrC{
+    height: 1px;
+    background-color: black;
+    border: none;
+    margin: 10px;
+}

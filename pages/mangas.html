@@ -2,40 +2,54 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Demon Slayer Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/manga.css">
-    <script src="../js/menu.js"></script>
-  </head>
-  
-  <body>
-    <main>
-      <header id="cabecalho">
-        <nav class="topnav" id="myTopnav">
-          <div><a href="../index.html"><img id="logo" src="../img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
-            title="Logo Demon Slayer" /></a></div>
-          <nav id="navMenu">
-            <a href="../index.html">Início</a>
-            <a href="arcos.html">Arcos</a>
-            <a href="mangas.html" id="active">Mangas</a>
-            <a href="personagens.html">Personagens</a>
-            <a href="respiracoes.html">Respirações</a>
-            <a href="descubra_respiracao.html">Descubra a sua respiração</a>
-            <a href="mundo.html">Mundo de Demon Slayer</a>
-            <a href="fanarts.html">Fanarts da comunidade</a>
-          </nav>
-          <a href="./pages/login.html"><img id="perfil" src="../img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
-              title="Imagem do usuario" /></a>
-              <a href="javascript:void(0);" id="icon"
-              onclick="myFunction()">&#9776;</a>
-        </nav>
-        </header>
+  <meta charset="UTF-8">
+  <title>Demon Slayer Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/arcos.css">
+  <script src="../js/menu.js"></script>
+</head>
+
+<body>
+  <main>
+    <header id="cabecalho">
+      <nav class="topnav" id="myTopnav">
+        <a href="./index.html"><img id="logo" src="../img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
+            title="Logo Demon Slayer" /></a>
+        <div id="divMenu"><!-- Inicio divMenu -->
+          <a href="../index.html">Início</a>
+          <hr class="hrM">
+          <a href="arcos.html" id="active">Arcos</a>
+          <hr class="hrM">
+          <a href="mangas.html">Mangas</a>
+          <hr class="hrM">
+          <a href="personagens.html">Personagens</a>
+          <hr class="hrM">
+          <a href="respiracoes.html">Respirações</a>
+          <hr class="hrM">
+          <a href="mundo.html">Mundo de Demon Slayer</a>
+          <hr class="hrM">
+          <a href="descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
+          <hr class="hrM">
+          <a href="fanarts.html" class="cMenu">Fanarts da comunidade</a>
+          <div id="comunidade"><!-- Inicio div comunidade --> 
+            <button id="btn">Comunidade</button>
+            <div id="subComunidade"><!-- Inicio div subComunidade -->
+              <a href="descubra_respiracao.html">Descubra a sua respiração</a>
+              <hr class="hrC">
+              <a href="fanarts.html">Fanarts da comunidade</a>
+            </div><!-- Fim div subComunidade -->
+          </div><!-- Fim div comunidade -->
+        </div><!-- Fim divMenu -->
+        <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
+        <a href="../pages/login.html"><img id="perfil" src="../img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
+            title="Imagem do usuario" /></a>
+      </nav>
+    </header>
     <div id="mangas-container">
         <div class="manga-item">
             <a href="mangas_html/manga_1.html">
