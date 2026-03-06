@@ -61,7 +61,7 @@ body, html {
   opacity: 0;
 }
 #arco1:hover #textoArco1{
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5 ease;
     opacity: 1;
 }
 #arco1 img:hover,#arco2 img:hover,#arco3 img:hover,#arco4 img:hover,#arco5 img:hover,#arco6 img:hover{
