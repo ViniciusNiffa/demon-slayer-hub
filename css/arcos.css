@@ -10,7 +10,7 @@ body, html {
     height: 100vh;
     gap: 0;
 }
-#arco2, #arco3, #arco4, #arco5, #arco6{
+#arco2, #arco3, #arco4, #arco5{
     width: 16.66%;
     box-shadow: 0 0 10px black;
     position: relative;
@@ -19,7 +19,7 @@ body, html {
     cursor: pointer;
 
 }
-#arco1{
+#arco1, #arco6{
     width: 16.66%;
     box-shadow: 0 0 10px black;
     position: relative;
@@ -28,7 +28,7 @@ body, html {
     cursor: pointer;
     background-color: black;
 }
-#arco1 img, #arco4 img, #arco5 img, #arco6 img{
+#arco2 img, #arco3 img, #arco4 img, #arco5 img{
     flex: 1;
     width: 100%;
     height: 100%;
@@ -49,7 +49,7 @@ body, html {
     object-fit: cover;
     object-position: 10% 0;
 }
-#textoArco1{
+#textoArco{
   position: absolute;
   top: 52%;
   bottom: 48%;
@@ -63,11 +63,11 @@ body, html {
   display: block;
   opacity: 0;
 }
-#arco1:hover #textoArco1{
+#arco1:hover #textoArco, #arco6:hover #textoArco{
     transition: opacity 0.5 ease;
     opacity: 1;
 }
-#arco1 img:hover,#arco2 img:hover,#arco3 img:hover,#arco4 img:hover,#arco5 img:hover,#arco6 img:hover{
+.capa:hover,.capa2:hover,#arco2 img:hover,#arco3 img:hover,#arco4 img:hover,#arco5 img:hover,#arco6 img:hover{
     filter: blur(7px);
     transform: scale(1.05);
     transition: transform 0.5s ease;
@@ -79,10 +79,34 @@ body, html {
     width: 100%;
     height: 100%;
     z-index: 2;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background: black url('../img/arcos/arco1.webp') no-repeat center / cover;
+    box-shadow: 0 0 10px black;
 }
-#arco1.aberto .capa {
+.capa2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: black url('../img/arcos/arco6.jpeg') no-repeat center / cover;
+    box-shadow: 0 0 10px black;
+}
+.capaTexto{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px black;
+}
+#arco1.aberto .capaTexto, #arco6.aberto .capaTexto{
     transform: translateY(-50%);
+}
+#arco1.aberto #textoArco, #arco.aberto .capaTexto{
+    transform: translate(-50%, -100%) !important; 
 }
 .menu-escondido{
     position: absolute;
@@ -108,18 +132,7 @@ body, html {
     width: 100%;
     height: 100%;
 }
-#sub1 a::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 15;
-}
-.menu-escondido a:hover{
-    color: white;
-    text-shadow: 0 0 4px white;
-}
-#sub1, #sub2, #sub3, #sub4, #sub5, #sub6{
+.sub{
     width: 100%;
     height: 4.15%;
     box-shadow: 0 0 10px black;
@@ -134,7 +147,7 @@ body, html {
     height: 100%;
     object-fit: cover;
 }
-#sub1 a{
+.sub a{
 /*   position: absolute; */
   top: 50%;
   bottom: 50%;
@@ -144,11 +157,17 @@ body, html {
   text-align: center;
   color: white;
   width: 100%;
+  height: 100%;
   z-index: 10;
 /*   display: block; */
 }
+.menu-escondido a{
+    background-color: rgba(0, 0, 0, 0.479);
+}
 .menu-escondido a:hover{
-    background-color: rgba(0, 0, 0, 0.396);
+    background-color: rgba(0, 0, 0, 0.699);
+    color: white;
+    text-shadow: 0 0 3px white;
 }
 .menu-escondido img:hover{
     filter: blur(5px);
