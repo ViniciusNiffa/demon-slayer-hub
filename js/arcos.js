@@ -9,3 +9,15 @@ document.querySelectorAll('.menu-escondido a').forEach(link => {
         e.stopPropagation();
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os divs de sub-arcos
+    const subArcos = document.querySelectorAll('.menu-escondido div[id^="sub"]');
+    
+    subArcos.forEach(sub => {
+        sub.addEventListener('click', (e) => {
+            // Isso impede que o clique no sub-arco chegue no #arco1 
+            // e feche o menu acidentalmente
+            e.stopPropagation();
+        });
+    });
+});

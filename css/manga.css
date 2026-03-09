@@ -10,10 +10,9 @@
     border-radius: 10px;
 }
 
-/* Container de cada item (Imagem + Título) */
 .manga-item {
     width: 180px;
-    height: auto; /* Define a largura para o item, baseada na largura da sua imagem */
+    height: auto;
     margin: 0 auto;
 }
 .manga-item img{
@@ -24,7 +23,6 @@
     box-shadow: 0 0 5px black
 }
 
-/* Estilização do parágrafo/título */
 .manga-item p {
     margin-top: 5px;
     text-align: center;

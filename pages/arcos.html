@@ -2,61 +2,89 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Demon Slayer Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/menu.css">
-  <link rel="stylesheet" href="../css/arcos.css">
-  <script src="../js/menu.js"></script>
-  <script src="../js/arcos.js"></script>
+    <meta charset="UTF-8">
+    <title>Demon Slayer Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/arcos.css">
+    <script src="../js/menu.js"></script>
+    <script src="../js/arcos.js"></script>
 </head>
 
 <body>
-  <main>
-    <header id="cabecalho">
-      <nav class="topnav" id="myTopnav">
-        <a href="./index.html"><img id="logo" src="../img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
-            title="Logo Demon Slayer" /></a>
-        <div id="divMenu"><!-- Inicio divMenu -->
-          <a href="../index.html">Início</a>
-          <hr class="hrM">
-          <a href="arcos.html" id="active">Arcos</a>
-          <hr class="hrM">
-          <a href="mangas.html">Mangas</a>
-          <hr class="hrM">
-          <a href="personagens.html">Personagens</a>
-          <hr class="hrM">
-          <a href="respiracoes.html">Respirações</a>
-          <hr class="hrM">
-          <a href="mundo.html">Mundo de Demon Slayer</a>
-          <hr class="hrM">
-          <a href="descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
-          <hr class="hrM">
-          <a href="fanarts.html" class="cMenu">Fanarts da comunidade</a>
-          <div id="comunidade"><!-- Inicio div comunidade --> 
-            <button id="btn">Comunidade</button>
-            <div id="subComunidade"><!-- Inicio div subComunidade -->
-              <a href="descubra_respiracao.html">Descubra a sua respiração</a>
-              <hr class="hrC">
-              <a href="fanarts.html">Fanarts da comunidade</a>
-            </div><!-- Fim div subComunidade -->
-          </div><!-- Fim div comunidade -->
-        </div><!-- Fim divMenu -->
-        <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
-        <a href="../pages/login.html"><img id="perfil" src="../img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
-            title="Imagem do usuario" /></a>
-      </nav>
-    </header>
+    <main>
+        <header id="cabecalho">
+            <nav class="topnav" id="myTopnav">
+                <a href="../index.html"><img id="logo" src="../img/pastaBanner/logo_demon_slayer.png"
+                        alt="logo Demon Slayer" title="Logo Demon Slayer" /></a>
+                <div id="divMenu"><!-- Inicio divMenu -->
+                    <a href="../index.html">Início</a>
+                    <hr class="hrM">
+                    <a href="arcos.html" id="active">Arcos</a>
+                    <hr class="hrM">
+                    <a href="mangas.html">Mangas</a>
+                    <hr class="hrM">
+                    <a href="personagens.html">Personagens</a>
+                    <hr class="hrM">
+                    <a href="respiracoes.html">Respirações</a>
+                    <hr class="hrM">
+                    <a href="mundo.html">Mundo de Demon Slayer</a>
+                    <hr class="hrM">
+                    <a href="descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
+                    <hr class="hrM">
+                    <a href="fanarts.html" class="cMenu">Fanarts da comunidade</a>
+                    <div id="comunidade"><!-- Inicio div comunidade -->
+                        <button id="btn">Comunidade</button>
+                        <div id="subComunidade"><!-- Inicio div subComunidade -->
+                            <a href="descubra_respiracao.html">Descubra a sua respiração</a>
+                            <hr class="hrC">
+                            <a href="fanarts.html">Fanarts da comunidade</a>
+                        </div><!-- Fim div subComunidade -->
+                    </div><!-- Fim div comunidade -->
+                </div><!-- Fim divMenu -->
+                <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
+                <a href="../pages/login.html"><img id="perfil" src="../img/pastaBanner/imagemUsuario.png"
+                        alt="imagem de usuario" title="Imagem do usuario" /></a>
+            </nav>
+        </header>
         <div id="arcos">
-            <div id="arco1">
-                <img src="../img/arcos/arco1.webp" alt="">
-                <div id="textoArco1">
-                    <h3>Arco da determinação inabalável</h3>
+            <div id="arco1" onclick="toggleArco(this)">
+                <div class="capa">
+                    <img src="../img/arcos/arco1.webp" alt="">
+                    <div id="textoArco1">
+                        <h3>Arco da determinação inabalável</h3>
+                    </div>
                 </div>
+                <nav class="menu-escondido">
+                    <div id="sub1">
+                        <img src="../img/arcos/sub1.webp" alt="">
+                        <a href="arcos/subArco1.html">1.1 Arco da seleção final</a>
+                    </div>
+                    <div id="sub2">
+                        <img src="../img/arcos/sub2.webp" alt="">
+                        <a href="subArco2.html">1.2 Arco do Pântano do Sequestrador</a>
+                    </div>
+                    <div id="sub3">
+                        <img src="../img/arcos/sub3.webp" alt="">
+                        <a href="subArco3.html">1.3 Arco de Asakusa</a>
+                    </div>
+                    <div id="sub4">
+                        <img src="../img/arcos/sub4.webp" alt="">
+                        <a href="subArco4.html">1.4 Arco da Mansão Tsuzumi</a>
+                    </div>
+                    <div id="sub5">
+                        <img src="../img/arcos/sub5.webp" alt="">
+                        <a href="subArco5.html">1.5 Arco do Monte Natagumo</a>
+                    </div>
+                    <div id="sub6">
+                        <img src="../img/arcos/sub6.webp" alt="">
+                        <a href="subArco6.html">1.6 Arco de Treinamento de Reabilitação</a>
+                    </div>
+                </nav>
             </div>
             <div id="arco2">
                 <img src="../img/arcos/arco2.webp" alt="">
