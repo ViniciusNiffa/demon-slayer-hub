@@ -23,6 +23,7 @@
     color: rgb(15, 156, 79);
 }
 #loginSenha{
+    width: 100%;
     margin: 0 auto;
     margin-top: 100px;
     display: flex;
@@ -30,8 +31,9 @@
     gap: 50px;
 }
 #loginSenha input{
-    width: 400px;
+    width: 80%;
     height: 50px;
+    margin: 0 auto;
     border: none;
     outline: none;
     border: 2px solid #ccc;
