@@ -11,3 +11,12 @@ background-size: cover;
     font-weight: bold;
     font-style: normal;
 }
+footer{
+    margin: 0 auto;
+    height: 30px;
+    padding-top: 7px;
+}
+footer p{
+    color: rgba(255, 255, 255, 0.529);
+    text-align: center;
+}

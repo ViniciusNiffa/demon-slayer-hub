@@ -1,0 +1,94 @@
+#personagens {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 40px auto;
+    padding: 50px;
+    gap: 60px;
+    background-color: #260707;
+    border-radius: 15px;
+}
+
+.container-categoria {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+    padding: 40px 20px;
+    background-color: #700000;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.titulo-categoria {
+    width: 100%;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid black;
+}
+
+.card-personagem {
+    flex: 1;
+    min-width: 160px;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card-personagem:hover {
+    transform: translateY(-12px);
+    filter: brightness(1.1);
+}
+
+.card-personagem img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+
+.card-personagem h3 {
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.card-personagem p {
+    color: #e0e0e0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+    .titulo-categoria {
+        font-size: 25px;
+    }
+    
+    .container-categoria {
+        padding: 20px 10px;
+    }
+}
+@media all and (max-width: 400px){
+    #personagens{
+        padding: 10px;
+    }
+    .card-personagem{
+        min-width: 100px;
+        max-width: 160px;
+    }
+}

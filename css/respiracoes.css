@@ -1,0 +1,81 @@
+#respiracoes {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(to right, #800505, #460808, #800505);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.titulo-pagina {
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 48px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    padding-bottom: 15px;
+}
+
+.grid-respiracoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    gap: 30px;
+}
+
+.card-respiracao {
+    min-width: 200px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.card-respiracao:hover {
+    transform: scale(1.05);
+}
+
+.card-respiracao img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+
+.card-respiracao h3 {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card-respiracao p {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+
+@media (max-width: 700px) {
+    .titulo-pagina {
+        font-size: 30px;
+    }
+    .card-respiracao h3{
+        font-size: 15px;
+    }
+    .card-respiracao p{
+        font-size: 10px;
+    }
+    .card-respiracao{
+        min-width: 150px;
+        width: 100%;
+    }
+}
