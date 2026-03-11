@@ -125,7 +125,7 @@
     }
 }
 
-@media all and (max-width:1000px) {
+@media all and (max-width:750px) {
 
     .topnav.responsive {
         height: 100px !important;
@@ -168,11 +168,6 @@
         height: 1px;
         margin: 0;
     }
-/*     #logo {
-    margin-top: 8px;
-    width: 100px;
-    height: auto;
-} */
 
     #icon {
         display: block !important;
@@ -187,9 +182,6 @@
     .topnav.responsive #icon {
         margin-top: 0;
     }
-}
-
-@media all and (max-width:700px) {
 
     .topnav,
     .topnav.responsive {

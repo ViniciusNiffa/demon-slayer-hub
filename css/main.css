@@ -32,10 +32,11 @@
     color: black;
 }
 #banner{
-    width: 80%;
+    width: 75%;
     display: flex;
     margin: 0 auto;
     gap: 50px;
+    padding-right: 50px;
 }
 #bannerZ{
     width: 32%;
@@ -51,7 +52,7 @@
     height: auto;
     align-items: center;
 }
-@media all and (max-width:700px){
+@media all and (max-width:750px){
     #banner{
         display: none;
     }

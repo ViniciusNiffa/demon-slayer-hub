@@ -1,0 +1,48 @@
+#mundo{
+    width: 75%;
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+    gap: 25px;
+    margin-top: 10px;
+    padding: 25px;
+    background-color: #260707;
+    border-radius: 10px;
+}
+
+#irPersonagens{
+    flex-direction: column;
+    display: flex;
+    margin: 0 auto;    
+    width: 50%;
+    height: auto;
+    gap: 10px;
+}
+
+#irRespiracoes{
+    flex-direction: column;
+    display: flex;
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+    gap: 10px;
+}
+
+#irPersonagens img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+
+}
+
+#irRespiracoes img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+#irPersonagens img:hover, #irRespiracoes img:hover{
+    transform: scale(1.03);
+}
