@@ -1,4 +1,4 @@
-#mundo{
+#mundo {
     width: 75%;
     height: auto;
     display: flex;
@@ -10,16 +10,8 @@
     border-radius: 10px;
 }
 
-#irPersonagens{
-    flex-direction: column;
-    display: flex;
-    margin: 0 auto;    
-    width: 50%;
-    height: auto;
-    gap: 10px;
-}
-
-#irRespiracoes{
+#irPersonagens,
+#irRespiracoes {
     flex-direction: column;
     display: flex;
     margin: 0 auto;
@@ -28,7 +20,8 @@
     gap: 10px;
 }
 
-#irPersonagens img{
+#irPersonagens img,
+#irRespiracoes img {
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -36,13 +29,24 @@
 
 }
 
-#irRespiracoes img{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.5s ease;
-}
-
-#irPersonagens img:hover, #irRespiracoes img:hover{
+#irPersonagens img:hover,
+#irRespiracoes img:hover {
     transform: scale(1.03);
+}
+
+@media all and (max-width: 850px) {
+    #mundo {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    #irPersonagens {
+        width: 80%;
+        margin-top: 25px;
+    }
+
+    #irRespiracoes {
+        width: 80%;
+        margin-bottom: 25px;
+    }
 }
