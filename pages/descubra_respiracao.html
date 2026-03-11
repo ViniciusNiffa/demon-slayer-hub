@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/menu.css">
-    <script src="../js/menu.js"></script>
+    <link rel="stylesheet" href="../css/descubra.css">
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/descubra.js" defer></script>
 </head>
 
 <body>
@@ -32,7 +34,7 @@
                     <hr class="hrM">
                     <a href="fanarts.html" class="cMenu">Fanarts da comunidade</a>
                     <div id="comunidade"><!-- Inicio div comunidade -->
-                        <button id="btn" id="active" >Comunidade</button>
+                        <button id="btn" id="active">Comunidade</button>
                         <div id="subComunidade"><!-- Inicio div subComunidade -->
                             <a href="descubra_respiracao.html" id="active">Descubra a sua respiração</a>
                             <hr class="hrC">
@@ -45,3 +47,35 @@
                         alt="imagem de usuario" title="Imagem do usuario" /></a>
             </nav>
         </header>
+
+            <div id="quizContainer">
+
+                <h1>Descubra sua Respiração</h1>
+
+                <div id="inicio">
+                    <p>Responda algumas perguntas e descubra qual respiração de Demon Slayer combina com você.</p>
+                    <button onclick="iniciarQuiz()">Começar Quiz</button>
+                </div>
+
+                <div id="perguntaBox" style="display:none;">
+                    <h2 id="pergunta"></h2>
+
+                    <div id="opcoes">
+                        <button onclick="responder('agua')">Calmo e estratégico</button>
+                        <button onclick="responder('fogo')">Impulsivo e corajoso</button>
+                        <button onclick="responder('trovao')">Rápido e preciso</button>
+                        <button onclick="responder('vento')">Imprevisível e agressivo</button>
+                    </div>
+                </div>
+
+                <div id="resultado" style="display:none;">
+                    <h2 id="respiracaoFinal"></h2>
+                    <img id="imagemRespiracao">
+                </div>
+
+            </div>
+
+    </main>
+</body>
+
+</html>

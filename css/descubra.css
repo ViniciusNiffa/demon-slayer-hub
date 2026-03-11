@@ -1,0 +1,35 @@
+body{
+    background-color:#260707;
+    font-family: Arial;
+    margin:0;
+}
+
+#quizContainer{
+    width:60%;
+    margin:120px auto;
+    background-color:#700000;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    color:white;
+}
+
+button{
+    background-color:#260707;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    margin:10px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background-color:black;
+}
+
+#imagemRespiracao{
+    margin-top:20px;
+    width:300px;
+}
