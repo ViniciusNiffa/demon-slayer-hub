@@ -40,7 +40,7 @@ let perguntas = [
 },
 
 {
-    pergunta:"Qual desses Hashiras você mais gosta?",
+    pergunta:"Qual desses caçadores você mais gosta?",
     opcoes:[
         {texto:"Tomioka", tipo:"agua"},
         {texto:"Rengoku", tipo:"fogo"},
@@ -116,22 +116,22 @@ function mostrarResultado(){
 
     if(maior=="agua"){
         texto="Sua respiração é: Respiração da Água"
-        img="img/tomioka.png"
+        img="../img/descubra/respAguaa.webp"
     }
 
     if(maior=="fogo"){
         texto="Sua respiração é: Respiração das Chamas"
-        img="img/rengoku.png"
+        img="../img/descubra/respFogo.jpg"
     }
 
     if(maior=="trovao"){
         texto="Sua respiração é: Respiração do Trovão"
-        img="img/zenitsu.png"
+        img="../img/descubra/respTrovao.webp"
     }
 
     if(maior=="vento"){
         texto="Sua respiração é: Respiração do Vento"
-        img="img/sanemi.png"
+        img="../img/descubra/respVento.jpg"
     }
 
     document.getElementById("respiracaoFinal").innerText = texto

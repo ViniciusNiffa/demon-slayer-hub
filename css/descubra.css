@@ -13,7 +13,9 @@ body{
     text-align:center;
     color:white;
 }
-
+#pergunta{
+    color: black;
+}
 button{
     background-color:#260707;
     color:white;
@@ -32,4 +34,31 @@ button:hover{
 #imagemRespiracao{
     margin-top:20px;
     width:300px;
+}
+@media (max-width:900px){
+
+    #quizContainer{
+        width:80%;
+        padding:30px;
+    }
+
+}
+
+@media (max-width:600px){
+
+    #quizContainer{
+        width:90%;
+        padding:25px;
+    }
+
+    button{
+        width:100%;
+        margin:8px 0;
+    }
+
+    #imagemRespiracao{
+        width:90%;
+        max-width:300px;
+    }
+
 }

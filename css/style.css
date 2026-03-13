@@ -37,8 +37,21 @@
     text-align: center;
     color: white;
 }
+#h1F{
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+#h1Outras{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
 @media all and (max-width: 400px){
-    .h1m{
-        font-size: 28px;
+    .h1m,#h1F,#h1Outras{
+        font-size: 25px;
     }
 }
