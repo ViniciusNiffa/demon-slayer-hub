@@ -3,55 +3,57 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Demon Slayer Hub</title>
+    <title>Personagens - Demon Slayer Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/personagens.css">
     <link rel="stylesheet" href="../css/descubra.css">
-    <script src="../js/menu.js" defer></script>
-    <script src="../js/descubra.js" defer></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/descubra.js"></script>
 </head>
 
 <body>
     <main>
         <header id="cabecalho">
             <nav class="topnav" id="myTopnav">
-                <a href="../index.html"><img id="logo" src="../img/pastaBanner/logo_demon_slayer.png"
+                <a href="./index.html"><img id="logo" src="../../img/pastaBanner/logo_demon_slayer.png"
                         alt="logo Demon Slayer" title="Logo Demon Slayer" /></a>
-
                 <div id="divMenu">
-                    <a href="../index.html">Início</a>
+                    <a href="../../index.html">Início</a>
                     <hr class="hrM">
-                    <a href="arcos.html">Arcos</a>
+                    <a href="../../pages/arcos.html">Arcos</a>
                     <hr class="hrM">
-                    <a href="mangas.html">Mangas</a>
+                    <a href="../../pages/mangas.html">Mangas</a>
                     <hr class="hrM">
-                    <a href="mundo.html">Mundo</a>
+                    <a class="cMenu" href="mundo.html">Mundo</a>
                     <hr class="hrM">
-                    <a href="descubra_respiracao.html" id="active" class="cMenu">Descubra a sua respiração</a>
+                    <div class="subMenu">
+                        <button id="btn"><a href="mundo.html">Mundo</a></button>
+                        <div class="subs">
+                            <a href="personagens.html">Personagens</a>
+                            <hr class="hrC">
+                            <a href="respiracoes.html">Respirações</a>
+                        </div>
+                    </div>
+                    <a href="descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
                     <hr class="hrM">
                     <a href="fanarts.html" class="cMenu">Fanarts da comunidade</a>
-
-                    <div id="comunidade">
+                    <div class="subMenu">
                         <button id="btn">Comunidade</button>
-
-                        <div id="subComunidade">
-                            <a href="descubra_respiracao.html" id="active">Descubra a sua respiração</a>
+                        <div class="subs">
+                            <a href="descubra_respiracao.html">Descubra a sua respiração</a>
                             <hr class="hrC">
                             <a href="fanarts.html">Fanarts da comunidade</a>
                         </div>
                     </div>
                 </div>
-
                 <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
-
-                <a href="../pages/login.html">
-                    <img id="perfil" src="../img/pastaBanner/imagemUsuario.png"
-                        alt="imagem de usuario" title="Imagem do usuario" />
-                </a>
+                <a href="../pages/login.html"><img id="perfil" src="../../img/pastaBanner/imagemUsuario.png"
+                        alt="imagem de usuario" title="Imagem do usuario" /></a>
             </nav>
         </header>
 

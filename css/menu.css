@@ -66,11 +66,11 @@
     display: none;
 }
 
-#comunidade {
+.subMenu {
     float: left;
 }
 
-#comunidade #btn {
+.subMenu #btn {
     font-size: 15px;
     border: none;
     outline: none;
@@ -82,13 +82,13 @@
     cursor: pointer;
 }
 
-#subComunidade {
+.subs {
     display: none;
     position: absolute;
     min-width: 120px;
 }
 
-#comunidade:hover #subComunidade {
+.subMenu:hover .subs{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
     color: black;
@@ -115,6 +115,9 @@
 .cMenu{
     display: none;
 }
+#menuMundo{
+    display: none;
+}
 @media all and (max-width:1500px) {
     #divMenu {
         gap: 40px;
@@ -126,7 +129,6 @@
 }
 
 @media all and (max-width:750px) {
-
     .topnav.responsive {
         height: 100px !important;
         flex-direction: row !important;
@@ -137,7 +139,7 @@
         display: none;
     }
 
-    #comunidade {
+    .subMenu {
         display: none;
     }
     .topnav.responsive #divMenu{
