@@ -1,0 +1,61 @@
+body {
+    padding: 0;
+}
+#voltar {
+    width: 70px;
+    height: auto;
+    transition:  transform 0.5s ease;
+}
+#voltar:hover {
+    transform:rotate(-360deg);
+}
+
+#cadastro {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#formCadastro {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 50px;
+    padding: 100px 0;
+    background-color: #700000;
+}
+
+#formCadastro input {
+    margin: 0 auto;
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+}
+#formCadastro label {
+    font-size: 30px;
+}
+
+#formCadastro button {
+    width: 30%;
+    height: 50px;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+#formCadastro button:hover {
+    background-color: rgb(6, 71, 6);
+    transform: scale(1.05);
+}
+.dados {
+    display: flex;
+    flex-direction: column;
+}
