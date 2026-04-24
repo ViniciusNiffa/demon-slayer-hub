@@ -1,8 +1,13 @@
 body {
-    padding: 0;
+    padding: 0 !important;
+    background-image: url(../img/background_hashiras.png);
+}
+
+body a {
+    position: absolute;
 }
 #voltar {
-    width: 70px;
+    width: 60px;
     height: auto;
     transition:  transform 0.5s ease;
 }
@@ -17,15 +22,19 @@ body {
     align-items: center;
     flex-direction: column;
     width: 100%;
+    gap: 10px;
+    position: absolute;
+    top: 150px;
 }
 
 #formCadastro {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 600px;
     gap: 50px;
-    padding: 100px 0;
-    background-color: #700000;
+    padding: 50px 0;
+    background: linear-gradient( rgba(128, 5, 5, 0.750), rgba(122, 33, 33, 0.75), rgba(128, 5, 5, 0.750));
+    border-radius: 30px;
 }
 
 #formCadastro input {
@@ -35,9 +44,24 @@ body {
     text-align: center;
     text-decoration: none;
     outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    background: none;
+}
+
+#formCadastro input:hover{
+    border: 2px solid black;
+}
+#formCadastro input:focus {
+    border: 2px solid black;
 }
 #formCadastro label {
-    font-size: 30px;
+    left: -50%;
+    right: -50%;
+    margin: 0 auto;
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
 }
 
 #formCadastro button {
@@ -49,11 +73,13 @@ body {
     border: none;
     border-radius: 10px;
     transition: transform 0.5s ease;
+    border: 2px solid black
 }
 
 #formCadastro button:hover {
-    background-color: rgb(6, 71, 6);
-    transform: scale(1.05);
+    border: none;
+    box-shadow: 0 0 10px black
+/*     transform: scale(1.01); */
 }
 .dados {
     display: flex;
