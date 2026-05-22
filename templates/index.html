@@ -1,116 +1,105 @@
 {% extends 'base.html' %} {% block title %}Início{% endblock %} {% block extra_css %}
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/main.css">
-  {% endblock %}
-  <script src="js/menu.js"></script>
-</head>
-
-<body>
-  <main>
-    <header id="cabecalho">
-      <nav class="topnav" id="myTopnav">
-        <a href="./index.html"><img id="logo" src="img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
-            title="Logo Demon Slayer" /></a>
-        <div id="divMenu"><!-- Inicio divMenu -->
-          <a href="index.html" id="active">Início</a>
-          <hr class="hrM">
-          <a href="./pages/arcos.html">Arcos</a>
-          <hr class="hrM">
-          <a href="./pages/mangas.html">Mangas</a>
-          <hr class="hrM">
-          <a class="cMenu" href="mundo.html">Mundo</a>
-          <hr class="hrM">
-          <div class="subMenu">
-              <button id="btn"><a href="/pages/mundo.html">Mundo</a></button>
-              <div class="subs">
-                  <a href="/pages/mundo/personagens.html">Personagens</a>
-                  <hr class="hrC">
-                  <a href="/pages/mundo/respiracoes.html">Respirações</a>
-              </div>
+<link rel="stylesheet" href="css/main.css">
+{% endblock %}
+{% block content %}
+  <header id="cabecalho">
+    <nav class="topnav" id="myTopnav">
+      <a href="./index.html"><img id="logo" src="img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
+          title="Logo Demon Slayer" /></a>
+      <div id="divMenu"><!-- Inicio divMenu -->
+        <a href="index.html" id="active">Início</a>
+        <hr class="hrM">
+        <a href="./pages/arcos.html">Arcos</a>
+        <hr class="hrM">
+        <a href="./pages/mangas.html">Mangas</a>
+        <hr class="hrM">
+        <a class="cMenu" href="mundo.html">Mundo</a>
+        <hr class="hrM">
+        <div class="subMenu">
+          <button id="btn"><a href="/pages/mundo.html">Mundo</a></button>
+          <div class="subs">
+            <a href="/pages/mundo/personagens.html">Personagens</a>
+            <hr class="hrC">
+            <a href="/pages/mundo/respiracoes.html">Respirações</a>
           </div>
-          <a href="./pages/descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
-          <hr class="hrM">
-          <a href="./pages/fanarts.html" class="cMenu">Fanarts da comunidade</a>
-          <div class="subMenu"><!-- Inicio div comunidade -->
-            <button id="btn">Comunidade</button>
-            <div class="subs"><!-- Inicio div subComunidade -->
-              <a href="./pages/descubra_respiracao.html">Descubra a sua respiração</a>
-              <hr class="hrC">
-              <a href="./pages/fanarts.html">Fanarts da comunidade</a>
-            </div><!-- Fim div subComunidade -->
-          </div><!-- Fim div comunidade -->
-        </div><!-- Fim divMenu -->
-        <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
-        <a href="./pages/login.html"><img id="perfil" src="img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
-            title="Imagem do usuario" /></a>
-      </nav>
-      <div id="banner"><img id="bannerZ" src="img/pastaBanner/zenitsuBanner.png" alt="Banner da página inicial do Site"
-          title="Banner da página inicial do site" /><img id="bannerT" src="img/pastaBanner/tanjiroBanner.png"
-          alt="Banner da página inicial do Site" title="Banner da página inicial do site" /><img id="bannerI"
-          src="img/pastaBanner/inosukeBanner.png" alt="Banner da página inicial do Site"
-          title="Banner da página inicial do site" />
-      </div>
-    </header>
-    <div id="fundo">
-      <section id="enredo">
-        <h1 class="pJustify">
-          Enredo:
-        </h1>
-        <p class="pJustify">
-          No Japão da era Taisho, Tanjiro Kamado é um menino de bom coração que ganha a vida vendendo carvão.
-          <br>
-          No entanto, sua vida pacífica é destruída quando um Oni mata sua família inteira.
-          <br>
-          Sua irmã mais nova, Nezuko, é a única sobrevivente, mas ela mesma se transformou em um Oni!
-          <br>
-          Tanjiro parte em uma jornada perigosa para encontrar uma maneira de retornar sua irmã ao normal e destruir o
-          Oni que arruinou sua vida.
-        </p>
-      </section>
-      <section id="sobreSite">
-        <h1 class="pJustify">
-          Sobre o site:
-        </h1>
-        <p>
-          Bem-vindo ao nosso site dedicado ao universo de Demon Slayer (Kimetsu no Yaiba).
-          <br />
-          Aqui você encontra um espaço criado para fãs que desejam explorar o mundo do anime de forma
-          interativa e
-          criativa.
-          O site reúne informações gerais sobre a obra, curiosidades e conteúdos pensados especialmente para a
-          comunidade.
-          <br />
-          O grande destaque é o mini game interativo, onde você pode descobrir qual Respiração mais combina
-          com
-          você,
-          tornando a experiência única e divertida.
-          Além disso, contamos com uma aba de fanarts da comunidade, um espaço voltado para valorizar a
-          criatividade
-          dos
-          fãs.
-          <br />
-          Nessa aba, as fanarts do mês ganham destaque especial.
-          <br />
-          As artes enviadas pela comunidade participam de uma seleção mensal,
-          e a fanart que ficar em primeiro lugar será exibida em um mural de destaque dentro dessa aba durante
-          todo o
-          mês
-          seguinte, dando visibilidade e reconhecimento ao artista.
-          Nosso objetivo é oferecer um ambiente envolvente que una entretenimento, interatividade e
-          participação
-          da
-          comunidade,
-          fazendo com que cada visitante se sinta parte do universo de Demon Slayer desde o primeiro acesso.
-        </p>
-      </section>
+        </div>
+        <a href="./pages/descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
+        <hr class="hrM">
+        <a href="./pages/fanarts.html" class="cMenu">Fanarts da comunidade</a>
+        <div class="subMenu"><!-- Inicio div comunidade -->
+          <button id="btn">Comunidade</button>
+          <div class="subs"><!-- Inicio div subComunidade -->
+            <a href="./pages/descubra_respiracao.html">Descubra a sua respiração</a>
+            <hr class="hrC">
+            <a href="./pages/fanarts.html">Fanarts da comunidade</a>
+          </div><!-- Fim div subComunidade -->
+        </div><!-- Fim div comunidade -->
+      </div><!-- Fim divMenu -->
+      <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
+      <a href="./pages/login.html"><img id="perfil" src="img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
+          title="Imagem do usuario" /></a>
+    </nav>
+    <div id="banner"><img id="bannerZ" src="img/pastaBanner/zenitsuBanner.png" alt="Banner da página inicial do Site"
+        title="Banner da página inicial do site" /><img id="bannerT" src="img/pastaBanner/tanjiroBanner.png"
+        alt="Banner da página inicial do Site" title="Banner da página inicial do site" /><img id="bannerI"
+        src="img/pastaBanner/inosukeBanner.png" alt="Banner da página inicial do Site"
+        title="Banner da página inicial do site" />
     </div>
-    <footer>
-      <p>&copy; 2026 Demon Slayer Hub - Página criada por um fã.</p>
-    </footer>
-  </main>
-</body>
-
-</html>
+  </header>
+  <div id="fundo">
+    <section id="enredo">
+      <h1 class="pJustify">
+        Enredo:
+      </h1>
+      <p class="pJustify">
+        No Japão da era Taisho, Tanjiro Kamado é um menino de bom coração que ganha a vida vendendo carvão.
+        <br>
+        No entanto, sua vida pacífica é destruída quando um Oni mata sua família inteira.
+        <br>
+        Sua irmã mais nova, Nezuko, é a única sobrevivente, mas ela mesma se transformou em um Oni!
+        <br>
+        Tanjiro parte em uma jornada perigosa para encontrar uma maneira de retornar sua irmã ao normal e destruir o
+        Oni que arruinou sua vida.
+      </p>
+    </section>
+    <section id="sobreSite">
+      <h1 class="pJustify">
+        Sobre o site:
+      </h1>
+      <p>
+        Bem-vindo ao nosso site dedicado ao universo de Demon Slayer (Kimetsu no Yaiba).
+        <br />
+        Aqui você encontra um espaço criado para fãs que desejam explorar o mundo do anime de forma
+        interativa e
+        criativa.
+        O site reúne informações gerais sobre a obra, curiosidades e conteúdos pensados especialmente para a
+        comunidade.
+        <br />
+        O grande destaque é o mini game interativo, onde você pode descobrir qual Respiração mais combina
+        com
+        você,
+        tornando a experiência única e divertida.
+        Além disso, contamos com uma aba de fanarts da comunidade, um espaço voltado para valorizar a
+        criatividade
+        dos
+        fãs.
+        <br />
+        Nessa aba, as fanarts do mês ganham destaque especial.
+        <br />
+        As artes enviadas pela comunidade participam de uma seleção mensal,
+        e a fanart que ficar em primeiro lugar será exibida em um mural de destaque dentro dessa aba durante
+        todo o
+        mês
+        seguinte, dando visibilidade e reconhecimento ao artista.
+        Nosso objetivo é oferecer um ambiente envolvente que una entretenimento, interatividade e
+        participação
+        da
+        comunidade,
+        fazendo com que cada visitante se sinta parte do universo de Demon Slayer desde o primeiro acesso.
+      </p>
+    </section>
+  </div>
+  <footer>
+    <p>&copy; 2026 Demon Slayer Hub - Página criada por um fã.</p>
+  </footer>
+{% endblock %}

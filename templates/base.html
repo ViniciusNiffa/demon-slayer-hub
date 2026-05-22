@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demon Slayer - </title>
-    {% block extra_css %}{endblock}
+    <title>Demon Slayer | </title>
+    {% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css')}}">
+    {endblock}
+    {% block extra_js %} 
+    <script src="{{ url_for('static', filename='js/menu.js')}}"></script>
+    {% endblock %}
     <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
 </head>
 <body>
