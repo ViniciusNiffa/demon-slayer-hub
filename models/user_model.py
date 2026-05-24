@@ -2,16 +2,16 @@ from database import get_connection
 from config import DEFAULT_IMAGE
 from werkzeug.security import generate_password_hash
 
-def create_user(username, email, senha, foto=DEFAULT_IMAGE):
+def create_user(nome, email, senha, foto=DEFAULT_IMAGE):
     conn = get_connection()
     cursor = conn.cursor()
 
-    hashed_password = generate_password_hash(senha)
-
     try:
+        # Criptografamos aqui para garantir que NENHUM usuário seja criado sem hash
+        hashed_password = generate_password_hash(senha)
         cursor.execute(
-            """INSERT INTO users (username, email, senha, foto) VALUES (?, ?, ?, ?)""",
-            (username, email, hashed_password, foto)
+            """INSERT INTO users (nome, email, senha, foto) VALUES (?, ?, ?, ?)""",
+            (nome, email, hashed_password, foto)
             )
         conn.commit()
         return True
@@ -51,15 +51,15 @@ def get_user_by_id(user_id):
         cursor.close()
         conn.close()
 
-def get_user_by_username(username):
+def get_user_by_nome(nome):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute('SELECT * FROM users WHERE username = ?', (username,))
+        cursor.execute('SELECT * FROM users WHERE nome = ?', (nome,))
         user = cursor.fetchone()
         return user
     except Exception as e:
-        print(f"Erro ao buscar usuário por username: {e}")
+        print(f"Erro ao buscar usuário por nome: {e}")
         return None
     finally:
         cursor.close()
@@ -79,13 +79,13 @@ def get_all_users():
         cursor.close()
         conn.close()
 
-def update_user(user_id, username, email, foto, biografia, respiracao_tipo):
+def update_user(user_id, nome, email, foto, biografia, respiracao_tipo):
     conn = get_connection()
     cursor = conn.cursor()
     try:
         cursor.execute(
-            'UPDATE users SET username = ?, email = ?, foto = ?, biografia = ?, respiracao_tipo = ? WHERE id = ?',
-            (username, email, foto, biografia, respiracao_tipo, user_id)
+            'UPDATE users SET nome = ?, email = ?, foto = ?, biografia = ?, respiracao_tipo = ? WHERE id = ?',
+            (nome, email, foto, biografia, respiracao_tipo, user_id)
         )
         conn.commit()
         return True
@@ -248,7 +248,11 @@ def get_fanart_by_id(fanart_id):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute('SELECT * FROM fanarts WHERE id = ?', (fanart_id,))
+        cursor.execute('''
+            SELECT f.*, u.nome AS autor_nome, u.foto AS autor_foto 
+            FROM fanarts f 
+            JOIN users u ON f.user_id = u.id 
+            WHERE f.id = ?''', (fanart_id,))
         return cursor.fetchone()
     except Exception as e:
         print(f"Erro ao obter fanart por ID: {e}")
@@ -274,18 +278,20 @@ def create_fanart(user_id, titulo, descricao, imagem, categoria):
         cursor.close()
         conn.close()
 
-def search_fanarts(titulo=None, categoria=None, ordem='recentes'):
+def search_fanarts(titulo=None, categoria=None, ordem='recentes', user_id=None):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        # Selecionamos tudo de fanarts e contamos os likes na tabela relacionada
+        # Selecionamos fanarts, o nome do autor, total de likes e se o usuário logado curtiu
         sql = """
-            SELECT f.*, COUNT(l.id) AS total_likes
+            SELECT f.*, u.nome AS autor_nome, COUNT(l.id) AS total_likes,
+            (SELECT 1 FROM likes WHERE fanart_id = f.id AND user_id = ?) AS curtiu
             FROM fanarts f
+            JOIN users u ON f.user_id = u.id
             LEFT JOIN likes l ON f.id = l.fanart_id
             WHERE 1=1
         """
-        params = []
+        params = [user_id]
         
         if titulo:
             sql += " AND f.titulo LIKE ?"
@@ -380,6 +386,23 @@ def delete_comentario(comentario_id):
     except Exception as e:
         print(f"Erro ao deletar comentário: {e}")
         return False
+    finally:
+        cursor.close()
+        conn.close()
+
+def get_comentarios_by_fanart(fanart_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        # Buscamos o comentário e o nome de quem comentou (usando JOIN)
+        cursor.execute('''
+            SELECT c.*, u.nome 
+            FROM comentarios c
+            JOIN users u ON c.user_id = u.id
+            WHERE c.fanart_id = ?
+            ORDER BY c.created_at DESC
+        ''', (fanart_id,))
+        return cursor.fetchall()
     finally:
         cursor.close()
         conn.close()

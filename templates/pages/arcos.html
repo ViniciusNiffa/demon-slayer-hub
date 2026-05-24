@@ -1,60 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Demon Slayer Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/arcos.css">
-    <script src="../js/menu.js"></script>
-    <script src="../js/arcos.js"></script>
-</head>
-
-<body>
-    <main>
-        <header id="cabecalho">
-            <nav class="topnav" id="myTopnav">
-                <a href="../index.html"><img id="logo" src="../img/pastaBanner/logo_demon_slayer.png"
-                        alt="logo Demon Slayer" title="Logo Demon Slayer" /></a>
-                <div id="divMenu"><!-- Inicio divMenu -->
-                    <a href="../index.html">Início</a>
-                    <hr class="hrM">
-                    <a href="arcos.html" id="active">Arcos</a>
-                    <hr class="hrM">
-                    <a href="mangas.html">Mangas</a>
-                    <hr class="hrM">
-                    <a class="cMenu" href="mundo.html">Mundo</a>
-                    <hr class="hrM">
-                    <div class="subMenu">
-                        <button id="btn"><a href="mundo.html">Mundo</a></button>
-                        <div class="subs">
-                            <a href="mundo/personagens.html">Personagens</a>
-                            <hr class="hrC">
-                            <a href="mundo/respiracoes.html">Respirações</a>
-                        </div>
-                    </div>
-                    <a href="descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
-                    <hr class="hrM">
-                    <a href="fanarts.html" class="cMenu">Fanarts da comunidade</a>
-                    <div class="subMenu"><!-- Inicio div comunidade -->
-                        <button id="btn">Comunidade</button>
-                        <div class="subs"><!-- Inicio div subComunidade -->
-                            <a href="descubra_respiracao.html">Descubra a sua respiração</a>
-                            <hr class="hrC">
-                            <a href="fanarts.html">Fanarts da comunidade</a>
-                        </div><!-- Fim div subComunidade -->
-                    </div><!-- Fim div comunidade -->
-                </div><!-- Fim divMenu -->
-                <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
-                <a href="../pages/login.html"><img id="perfil" src="../img/pastaBanner/imagemUsuario.png"
-                        alt="imagem de usuario" title="Imagem do usuario" /></a>
-            </nav>
-        </header>
+{% extends 'base.html' %} {% block title %}Arcos{% endblock %} {% block extra_css %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/arcos.css')}}">
+{% endblock %}
+{% block content %}
         <div id="arcos">
             <div id="arco1" onclick="toggleArco(this)">
                 <div class="capaTexto">
@@ -66,27 +13,27 @@
                 </div>
                 <nav class="menu-escondido">
                     <div class="subArco1" id="sub1">
-                        <img src="../img/arcos/sub1.webp" alt="">
+                        <img src="{{ url_for('static', filename='uploads/arcos/sub1.webp') }}" alt="">
                         <a href="arcos/subArco1.html">1.1 Arco da seleção final</a>
                     </div>
                     <div class="subArco1">
-                        <img src="../img/arcos/sub2.webp" alt="">
+                        <img src="{{ url_for('static', filename='uploads/arcos/sub2.webp') }}" alt="">
                         <a href="arcos/subArco2.html">1.2 Arco do Pântano do Sequestrador</a>
                     </div>
                     <div class="subArco1">
-                        <img src="../img/arcos/sub3.webp" alt="">
+                        <img src="{{ url_for('static', filename='uploads/arcos/sub3.webp') }}" alt="">
                         <a href="arcos/subArco3.html">1.3 Arco de Asakusa</a>
                     </div>
                     <div class="subArco1">
-                        <img src="../img/arcos/sub4.webp" alt="">
+                        <img src="{{ url_for('static', filename='uploads/arcos/sub4.webp') }}" alt="">
                         <a href="arcos/subArco4.html">1.4 Arco da Mansão Tsuzumi</a>
                     </div>
                     <div class="subArco1">
-                        <img src="../img/arcos/sub5.webp" alt="">
+                        <img src="{{ url_for('static', filename='uploads/arcos/sub5.webp') }}" alt="">
                         <a href="arcos/subArco5.html">1.5 Arco do Monte Natagumo</a>
                     </div>
                     <div class="subArco1">
-                        <img src="../img/arcos/sub6.webp" alt="">
+                        <img src="{{ url_for('static', filename='uploads/arcos/sub6.webp') }}" alt="">
                         <a href="arcos/subArco6.html">1.6 Arco de Treinamento de Reabilitação</a>
                     </div>
                 </nav>
@@ -96,7 +43,7 @@
                     <h3 class="h3a">Arco do Trem Infinito</h3>
                 </div>
                 <a href="arcos/arco2.html">
-                    <img src="../img/arcos/arco2.webp" alt="">
+                    <img src="{{ url_for('static', filename='uploads/arcos/arco2.webp') }}" alt="">
                 </a>
             </div>
             <div id="arco3">
@@ -104,7 +51,7 @@
                     <h3 class="h3a">Arco do Distrito do Entretenimento</h3>
                 </div>
                 <a href="arcos/arco3.html">
-                    <img src="../img/arcos/arco3.webp" alt="">
+                    <img src="{{ url_for('static', filename='uploads/arcos/arco3.webp') }}" alt="">
                 </a>
             </div>
             <div id="arco4">
@@ -112,7 +59,7 @@
                     <h3 class="h3a">Arco da Vila dos Ferreiros</h3>
                 </div>
                 <a href="arcos/arco4.html">
-                    <img src="../img/arcos/arco4.jpg" alt="">
+                    <img src="{{ url_for('static', filename='uploads/arcos/arco4.jpg') }}" alt="">
                 </a>
             </div>
             <div id="arco5">
@@ -120,7 +67,7 @@
                     <h3 class="h3a">Arco do Treinamento dos Hashiras</h3>
                 </div>
                 <a href="arcos/arco5.html">
-                    <img src="../img/arcos/arco5.webp" alt="">
+                    <img src="{{ url_for('static', filename='uploads/arcos/arco5.webp') }}" alt="">
                 </a>
             </div>
             <div id="arco6" onclick="toggleArco(this)">
@@ -133,14 +80,11 @@
                 </div>
                 <nav class="menu-escondido" id="menu6">
                     <div class="subArco6" id="sub7">
-                        <img src="../img/arcos/sub7.webp" alt="">
+                        <img src="{{ url_for('static', filename='uploads/arcos/sub7.webp') }}" alt="">
                         <a href="arcos/subArco1.html">6.1 Arco do castelo infinito</a>
                     </div>
                     <div class="subArco6">
-                        <img src="../img/arcos/sub8.webp" alt="">
+                        <img src="{{ url_for('static', filename='uploads/arcos/sub8.webp') }}" alt="">
                         <a href="arcos/subArco2.html">6.2 Arco da contagem regressiva para o nascer do sol</a>
                     </div>
-    </main>
-</body>
-
-</html>
+{% endblock %}

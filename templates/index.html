@@ -1,51 +1,16 @@
 {% extends 'base.html' %} {% block title %}Início{% endblock %} {% block extra_css %}
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 {% endblock %}
+
+{% block banner %}
+  <div id="banner">
+    <img id="bannerZ" src="{{ url_for('static', filename='uploads/pastaBanner/zenitsuBanner.png') }}" alt="Banner Zenitsu" />
+    <img id="bannerT" src="{{ url_for('static', filename='uploads/pastaBanner/tanjiroBanner.png') }}" alt="Banner Tanjiro" />
+    <img id="bannerI" src="{{ url_for('static', filename='uploads/pastaBanner/inosukeBanner.png') }}" alt="Banner Inosuke" />
+  </div>
+{% endblock %}
+
 {% block content %}
-  <header id="cabecalho">
-    <nav class="topnav" id="myTopnav">
-      <a href="./index.html"><img id="logo" src="img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
-          title="Logo Demon Slayer" /></a>
-      <div id="divMenu"><!-- Inicio divMenu -->
-        <a href="index.html" id="active">Início</a>
-        <hr class="hrM">
-        <a href="./pages/arcos.html">Arcos</a>
-        <hr class="hrM">
-        <a href="./pages/mangas.html">Mangas</a>
-        <hr class="hrM">
-        <a class="cMenu" href="mundo.html">Mundo</a>
-        <hr class="hrM">
-        <div class="subMenu">
-          <button id="btn"><a href="/pages/mundo.html">Mundo</a></button>
-          <div class="subs">
-            <a href="/pages/mundo/personagens.html">Personagens</a>
-            <hr class="hrC">
-            <a href="/pages/mundo/respiracoes.html">Respirações</a>
-          </div>
-        </div>
-        <a href="./pages/descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
-        <hr class="hrM">
-        <a href="./pages/fanarts.html" class="cMenu">Fanarts da comunidade</a>
-        <div class="subMenu"><!-- Inicio div comunidade -->
-          <button id="btn">Comunidade</button>
-          <div class="subs"><!-- Inicio div subComunidade -->
-            <a href="./pages/descubra_respiracao.html">Descubra a sua respiração</a>
-            <hr class="hrC">
-            <a href="./pages/fanarts.html">Fanarts da comunidade</a>
-          </div><!-- Fim div subComunidade -->
-        </div><!-- Fim div comunidade -->
-      </div><!-- Fim divMenu -->
-      <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
-      <a href="./pages/login.html"><img id="perfil" src="img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
-          title="Imagem do usuario" /></a>
-    </nav>
-    <div id="banner"><img id="bannerZ" src="img/pastaBanner/zenitsuBanner.png" alt="Banner da página inicial do Site"
-        title="Banner da página inicial do site" /><img id="bannerT" src="img/pastaBanner/tanjiroBanner.png"
-        alt="Banner da página inicial do Site" title="Banner da página inicial do site" /><img id="bannerI"
-        src="img/pastaBanner/inosukeBanner.png" alt="Banner da página inicial do Site"
-        title="Banner da página inicial do site" />
-    </div>
-  </header>
   <div id="fundo">
     <section id="enredo">
       <h1 class="pJustify">
@@ -85,6 +50,31 @@
         fãs.
         <br />
         Nessa aba, as fanarts do mês ganham destaque especial.
+        
+        <div class="galeria-home">
+            <h2>Fanarts Recentes</h2>
+            <div class="grid-fanarts">
+                {% for fanart in fanarts %}
+                <div class="card-fanart">
+                    <a href="{{ url_for('fanart.ver_fanart', fanart_id=fanart.id) }}">
+                        <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}">
+                        <h3>{{ fanart.titulo }}</h3>
+                    </a>
+                    <p>Por: {{ fanart.autor_nome }}</p>
+                    <span class="like-container">
+                        {% if fanart.curtiu %}
+                            <span class="coracao-vermelho">❤️</span>
+                        {% else %}
+                            <span class="coracao-preto">🖤</span>
+                        {% endif %}
+                        {{ fanart.total_likes }}
+                    </span>
+                </div>
+                {% else %}
+                <p>Nenhuma fanart encontrada.</p>
+                {% endfor %}
+            </div>
+        </div>
         <br />
         As artes enviadas pela comunidade participam de uma seleção mensal,
         e a fanart que ficar em primeiro lugar será exibida em um mural de destaque dentro dessa aba durante

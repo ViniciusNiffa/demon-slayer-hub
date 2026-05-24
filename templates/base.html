@@ -3,19 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demon Slayer | </title>
-    {% block extra_css %}
+    <title>Demon Slayer | {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css')}}">
-    {endblock}
+    {% block extra_css %}
+    {% endblock %}
     {% block extra_js %} 
     <script src="{{ url_for('static', filename='js/menu.js')}}"></script>
     {% endblock %}
-    <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='uploads/favicon-16x16.png') }}">
 </head>
 <body>
-    
+    <header id="cabecalho">
+        <nav class="topnav" id="myTopnav">
+          <a href="{{ url_for('index') }}"><img id="logo" src="{{ url_for('static', filename='uploads/pastaBanner/logo_demon_slayer.png') }}" alt="logo Demon Slayer"
+              title="Logo Demon Slayer" /></a>
+          <div id="divMenu">
+            <a href="{{ url_for('index') }}">Início</a>
+            <hr class="hrM">
+            {% if session.get('is_admin') %}
+            <a href="{{ url_for('admin.admin') }}">Painel Admin</a>
+            <hr class="hrM">
+            {% endif %}
+            {% if session.get('user_id') %}
+            <a href="{{ url_for('user.perfil') }}">Meu Perfil</a>
+            <a href="{{ url_for('auth.logout') }}">Sair</a>
+            {% endif %}
+            
+            <!-- Links para páginas estáticas (ajuste as rotas conforme criar os Blueprints) -->
+            <a href="{{ url_for('arcos') }}">Arcos</a>
+            <hr class="hrM">
+            <a href="{{ url_for('mangas') }}">Mangas</a>
+            <hr class="hrM">
+            
+            <div class="subMenu">
+              <button id="btn"><a href="{{ url_for('mundo') }}">Mundo</a></button>
+              <div class="subs">
+                <a href="/pages/mundo/personagens.html">Personagens</a>
+                <hr class="hrC">
+                <a href="/pages/mundo/respiracoes.html">Respirações</a>
+              </div>
+            </div>
+            
+            <a href="#" class="cMenu">Descubra a sua respiração</a>
+            <hr class="hrM">
+            <a href="#" class="cMenu">Fanarts da comunidade</a>
+          </div>
+          <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
+          <a href="{{ url_for('user.perfil') if session.get('user_id') else url_for('auth.login') }}">
+            <img id="perfil" src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="imagem de usuario" title="Imagem do usuario" />
+          </a>
+        </nav>
+        
+        {# Bloco reservado para o banner exclusivo da index #}
+        {% block banner %}{% endblock %}
+    </header>
+
+    <!-- Exibição de mensagens flash para feedback ao usuário -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for message in messages %}
+            <div class="alert">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 </body>
 </html>

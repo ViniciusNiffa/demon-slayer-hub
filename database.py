@@ -14,7 +14,7 @@ def init_db():
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL,
+            nome TEXT NOT NULL,
             email TEXT UNIQUE NOT NULL,
             senha TEXT NOT NULL,
             foto TEXT,
@@ -82,7 +82,7 @@ def init_db():
     """)
 
     cursor.execute("""
-        INSERT OR IGNORE INTO users(username, email, senha, foto, is_admin)
+        INSERT OR IGNORE INTO users(nome, email, senha, foto, is_admin)
         VALUES(?, ?, ?, ?, 1)
     """, ('Admin', 'admin@gmail.com', generate_password_hash('aDmin@ç132'), 'default.png'))
     
