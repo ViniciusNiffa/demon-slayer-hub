@@ -96,6 +96,23 @@ def update_user(user_id, nome, email, foto, biografia, respiracao_tipo):
         cursor.close()
         conn.close()   
 
+def update_user_respiracao(user_id, respiracao_tipo):
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute(
+            'UPDATE users SET respiracao_tipo = ? WHERE id = ?',
+            (respiracao_tipo, user_id)
+        )
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Erro ao atualizar respiração: {e}")
+        return False
+    finally:
+        cursor.close()
+        conn.close()
+
 def delete_user(user_id):
     conn = get_connection()
     cursor = conn.cursor()

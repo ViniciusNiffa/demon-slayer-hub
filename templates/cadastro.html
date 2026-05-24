@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demon Slayer Hub | Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='uploads/favicon-16x16.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+</head>
+
+<body>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div id="flashModal" class="modal-overlay" style="display: block;">
+          <div class="modal-content {{ messages[0][0] }}">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            {% for category, message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+            <button class="btn-modal {{ messages[0][0] }}" onclick="closeModal()">Ok</button>
+          </div>
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='uploads/voltar.png') }} " id="voltar" title="Voltar" alt="Voltar"></a>
+    
+    <section id="cadastro">
+        <form id="formCadastro" action="{{ url_for('auth.cadastro') }}" method="POST">
+            <h1>Cadastro de Usuário</h1>
+            <div class="dados">
+                <label>Usuário</label>
+                <input type="text" name="nome" placeholder="Seu nome de caçador" required>
+            </div>
+
+            <div class="dados">
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="exemplo@email.com" required>
+            </div>
+
+            <div class="dados">
+                <label>Senha</label>
+                <input type="password" name="senha" placeholder="Crie uma senha" required>
+            </div>
+
+            <div class="dados">
+                <label>Confirmar Senha</label>
+                <input type="password" name="confirmar_senha" placeholder="Repita a senha" required>
+            </div>
+
+            <button type="submit" id="botao">Cadastrar</button>
+        </form>
+    </section>
+    <script src="{{ url_for('static', filename='js/global.js') }}"></script>
+</body>
+
+</html>

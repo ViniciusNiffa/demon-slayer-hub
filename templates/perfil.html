@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Perfil de {{ user.nome }}{% endblock %}
+
+{% block content %}
+<div class="perfil-container">
+    <div class="perfil-header">
+        <img src="{{ url_for('static', filename='uploads/' + user.foto) }}" alt="Foto de {{ user.nome }}" class="perfil-foto">
+        <h1>{{ user.nome }}</h1>
+        <p class="badge-respiracao">{{ user.respiracao_tipo or 'Sem respiração definida' }}</p>
+    </div>
+
+    {% if session.get('user_id') == user.id %}
+    <section class="perfil-edit">
+        <h2>Editar Meus Dados</h2>
+        <form action="{{ url_for('user.perfil') }}" method="POST" enctype="multipart/form-data">
+            <input type="text" name="nome" value="{{ user.nome }}" placeholder="Nome">
+            <input type="email" name="email" value="{{ user.email }}" placeholder="E-mail">
+            <textarea name="biografia" placeholder="Sua biografia...">{{ user.biografia }}</textarea>
+            
+            <label for="respiracao_tipo">Tipo de Respiração:</label>
+            <input type="text" name="respiracao_tipo" value="{{ user.respiracao_tipo or '' }}" readonly>
+            <small>Faça o quiz para mudar sua respiração!</small>
+
+            <label for="foto">Alterar Foto:</label>
+            <input type="file" name="foto">
+            
+            <button type="submit" class="btn-save">Salvar Alterações</button>
+        </form>
+    </section>
+    {% else %}
+    <section class="perfil-bio">
+        <p>{{ user.biografia or 'Este caçador ainda não escreveu uma biografia.' }}</p>
+    </section>
+    {% endif %}
+
+    <hr>
+    <h2>Fanarts Publicadas</h2>
+    <div class="grid-fanarts">
+        {% for fanart in fanarts %}
+        <div class="card-fanart">
+            <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}">
+            <h3>{{ fanart.titulo }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

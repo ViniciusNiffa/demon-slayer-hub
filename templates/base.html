@@ -12,6 +12,7 @@
     {% endblock %}
     {% block extra_js %} 
     <script src="{{ url_for('static', filename='js/menu.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/global.js')}}"></script>
     {% endblock %}
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='uploads/favicon-16x16.png') }}">
 </head>
@@ -41,15 +42,24 @@
             <div class="subMenu">
               <button id="btn"><a href="{{ url_for('mundo') }}">Mundo</a></button>
               <div class="subs">
-                <a href="/pages/mundo/personagens.html">Personagens</a>
+                <a href="{{ url_for('personagens') }}">Personagens</a>
                 <hr class="hrC">
-                <a href="/pages/mundo/respiracoes.html">Respirações</a>
+                <a href="{{ url_for('respiracoes') }}">Respirações</a>
               </div>
             </div>
             
-            <a href="#" class="cMenu">Descubra a sua respiração</a>
+            <a href="{{ url_for('quiz.descubra') }}" class="cMenu">Descubra a sua respiração</a>
             <hr class="hrM">
-            <a href="#" class="cMenu">Fanarts da comunidade</a>
+            <a href="{{ url_for('fanart.fanarts') }}" class="cMenu">Fanarts da comunidade</a>
+
+            <div class="subMenu">
+              <button id="btn">Comunidade</button>
+              <div class="subs">
+                <a href="{{ url_for('quiz.descubra') }}">Descubra a sua respiração</a>
+                <hr class="hrC">
+                <a href="{{ url_for('fanart.fanarts') }}">Fanarts da comunidade</a>
+              </div>
+            </div>
           </div>
           <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
           <a href="{{ url_for('user.perfil') if session.get('user_id') else url_for('auth.login') }}">
@@ -62,12 +72,16 @@
     </header>
 
     <!-- Exibição de mensagens flash para feedback ao usuário -->
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
-        <div class="flash-messages">
-          {% for message in messages %}
-            <div class="alert">{{ message }}</div>
-          {% endfor %}
+        <div id="flashModal" class="modal-overlay" style="display: block;">
+          <div class="modal-content {{ messages[0][0] }}">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            {% for category, message in messages %}
+              <p class="msg-text">{{ message }}</p>
+            {% endfor %}
+            <button class="btn-modal {{ messages[0][0] }}" onclick="closeModal()">Entendido</button>
+          </div>
         </div>
       {% endif %}
     {% endwith %}

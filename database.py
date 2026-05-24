@@ -1,9 +1,18 @@
 import sqlite3
+import os
 from config import DATABASE
 from werkzeug.security import generate_password_hash
 
 def get_connection():
-    conn = sqlite3.connect(DATABASE)
+    # Garante que o caminho seja absoluto para evitar erros de diretório no Windows/OneDrive
+    db_path = os.path.abspath(DATABASE)
+    db_dir = os.path.dirname(db_path)
+
+    # Cria a pasta do banco de dados caso ela não exista
+    if db_dir and not os.path.exists(db_dir):
+        os.makedirs(db_dir, exist_ok=True)
+
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 

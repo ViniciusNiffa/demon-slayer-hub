@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
-from models.user_model import create_fanart, get_fanart_by_id, create_comentario, like_fanart, unlike_fanart, has_user_liked, get_comentarios_by_fanart
+from models.user_model import create_fanart, get_fanart_by_id, create_comentario, like_fanart, unlike_fanart, has_user_liked, get_comentarios_by_fanart, search_fanarts
 from utils.decorators import login_required
 import os
 import uuid
@@ -33,6 +33,11 @@ def nova_fanart():
             flash("Erro ao publicar fanart.")
 
     return render_template('nova_fanart.html')
+
+@fanart_bp.route('/fanarts')
+def fanarts():
+    fanarts_list = search_fanarts()
+    return render_template('index.html', fanarts=fanarts_list)
 
 @fanart_bp.route('/fanart/<int:fanart_id>')
 def ver_fanart(fanart_id):

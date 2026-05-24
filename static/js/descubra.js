@@ -116,24 +116,42 @@ function mostrarResultado(){
 
     if(maior=="agua"){
         texto="Sua respiração é: Respiração da Água"
-        img="../img/descubra/respAguaa.webp"
+        img="/static/img/descubra/respAguaa.webp"
     }
 
     if(maior=="fogo"){
         texto="Sua respiração é: Respiração das Chamas"
-        img="../img/descubra/respFogo.jpg"
+        img="/static/img/descubra/respFogo.jpg"
     }
 
     if(maior=="trovao"){
         texto="Sua respiração é: Respiração do Trovão"
-        img="../img/descubra/respTrovao.webp"
+        img="/static/img/descubra/respTrovao.webp"
     }
 
     if(maior=="vento"){
         texto="Sua respiração é: Respiração do Vento"
-        img="../img/descubra/respVento.jpg"
+        img="/static/img/descubra/respVento.jpg"
     }
 
     document.getElementById("respiracaoFinal").innerText = texto
     document.getElementById("imagemRespiracao").src = img
+
+    // Envia o resultado para o servidor de forma assíncrona
+    const nomeRespiracao = texto.replace("Sua respiração é: ", "");
+    
+    fetch('/descubra/salvar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ respiracao: nomeRespiracao }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log("Resultado salvo no perfil!");
+        }
+    })
+    .catch(error => console.error('Erro ao enviar resultado:', error));
 }

@@ -4,6 +4,7 @@ from routes.auth_routes import bp as auth_bp
 from routes.user_routes import user_bp
 from routes.admin_routes import admin_bp
 from routes.fanart_routes import fanart_bp
+from models.quiz_routes import quiz_bp
 from models.user_model import search_fanarts
 
 app = Flask(__name__)
@@ -19,6 +20,7 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(user_bp)
 app.register_blueprint(admin_bp)
 app.register_blueprint(fanart_bp)
+app.register_blueprint(quiz_bp)
 
 @app.route('/')
 def index():
@@ -38,6 +40,10 @@ def arcos():
 @app.route('/personagens')
 def personagens():
     return render_template('pages/mundo/personagens.html')
+
+@app.route('/respiracoes')
+def respiracoes():
+    return render_template('pages/mundo/respiracoes.html')
 
 @app.route('/mangas')
 def mangas():

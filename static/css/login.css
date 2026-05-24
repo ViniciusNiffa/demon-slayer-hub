@@ -1,13 +1,20 @@
 #divLogin {
+    display: flex;
     width: 500px;
     height: 600px;
     background-color: #800505;
     border-radius: 50px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
+
+#divLogin h1{
+    margin: 0 auto;
+}
+
 #divLogin img{
     width: 30%;
     height: auto;
@@ -18,22 +25,23 @@
     color: black;
     margin: 0 auto;
     font-size: 16px;
-    margin-top: auto;
     margin-bottom: 20px;
+    margin-top: auto;
 }
 #insc a{
     color: white;
 }
 #loginSenha{
+    display: flex;
     width: 100%;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     gap: 50px;
-    margin-bottom: 20%;
+    margin-bottom: 10px;
 }
-#loginSenha input{
+#loginSenha .form-group input{
     width: 80%;
     height: 50px;
     margin: 0 auto;
@@ -42,11 +50,27 @@
     padding: 10px;
     border-radius: 5px;
 }
-#loginSenha input:focus{
+#loginSenha .form-group input:focus{
     outline: none;
     border: 2px solid black;
     box-shadow: 0 0 5px black;
 }
+
+#divLogin button{
+    width: 20%;
+    height: 25px;
+    margin: 0 auto;
+    background-color: #800505;
+    border: none;
+    box-shadow: 0 0 10px black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#divLogin button:hover{
+    background-color: #720606;
+}
+
 @media all and (max-width:660px){
     #divLogin{
         margin-top: 50px;
