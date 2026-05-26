@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Enviar Fanart{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/fanart.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="perfil-container">
+    <div class="perfil-header">
+        <h1 class="fonte-dms">Compartilhe sua Arte</h1>
+        <p>Mostre seu talento para outros caçadores!</p>
+    </div>
+
+    <section class="perfil-edit">
+        <form action="{{ url_for('user.enviar_fanart') }}" method="POST" enctype="multipart/form-data">
+            <input type="text" name="titulo" placeholder="Título da sua Fanart" required>
+            <textarea name="descricao" placeholder="Conte um pouco sobre sua arte..."></textarea>
+            <select name="categoria" required style="background: #1a1a1a; border: 1px solid #444; color: white; padding: 12px; border-radius: 5px;">
+                <option value="" disabled selected>Escolha uma Categoria</option>
+                <option value="Personagens">Personagens</option>
+                <option value="Cenários">Cenários</option>
+                <option value="Combate">Combate</option>
+                <option value="Outros">Outros</option>
+            </select>
+            <label for="imagem">Selecione a Imagem:</label>
+            <input type="file" name="imagem" accept="image/*" required>
+            <button type="submit" class="btn-save">Publicar Fanart</button>
+        </form>
+    </section>
+</div>
+{% endblock %}

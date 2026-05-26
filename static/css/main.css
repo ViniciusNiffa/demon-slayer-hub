@@ -8,9 +8,8 @@
     border-radius: 20px;
     border: 5px solid black;
 }
-#enredo, #sobreSite{
+#enredo, #sobreSite, .galeria-home{
     border-radius: 10px;
-/*     background-color: black; */
     margin: 0 auto;
     width: 90%;
     box-shadow: 0 0 15px black;
@@ -20,13 +19,11 @@
     background-color: #700000;
 }
 #enredo p, #sobreSite p{
-    /* color: rgb(139, 0, 0); */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: black;
 }
 #enredo h1, #sobreSite h1{
-    /* color: rgb(139, 0, 0); */
     font-family: "bloodcrow";
     font-size: 40px;
     color: black;
@@ -57,13 +54,11 @@
         display: none;
     }
     #enredo p, #sobreSite p{
-        /* color: rgb(139, 0, 0); */
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
         color: black;
     }
     #enredo h1, #sobreSite h1{
-        /* color: rgb(139, 0, 0); */
         font-family: "bloodcrow";
         font-size: 30px;
         color: black;

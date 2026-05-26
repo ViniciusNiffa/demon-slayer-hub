@@ -28,12 +28,7 @@
             <a href="{{ url_for('admin.admin') }}">Painel Admin</a>
             <hr class="hrM">
             {% endif %}
-            {% if session.get('user_id') %}
-            <a href="{{ url_for('user.perfil') }}">Meu Perfil</a>
-            <a href="{{ url_for('auth.logout') }}">Sair</a>
-            {% endif %}
             
-            <!-- Links para páginas estáticas (ajuste as rotas conforme criar os Blueprints) -->
             <a href="{{ url_for('arcos') }}">Arcos</a>
             <hr class="hrM">
             <a href="{{ url_for('mangas') }}">Mangas</a>
@@ -58,20 +53,37 @@
                 <a href="{{ url_for('quiz.descubra') }}">Descubra a sua respiração</a>
                 <hr class="hrC">
                 <a href="{{ url_for('fanart.fanarts') }}">Fanarts da comunidade</a>
+                {% if session.get('user_id') %}
+                <hr class="hrC">
+                <a href="{{ url_for('user.enviar_fanart') }}">Enviar minha Fanart</a>
+                {% endif %}
               </div>
             </div>
           </div>
           <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
-          <a href="{{ url_for('user.perfil') if session.get('user_id') else url_for('auth.login') }}">
-            <img id="perfil" src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="imagem de usuario" title="Imagem do usuario" />
-          </a>
+          <div class="profile-section">
+            {% if session.get('user_id') %}
+            <div class="subMenu profile-menu">
+              <img id="perfil" src="{{ url_for('static', filename='uploads/' + (session.get('user_foto') or 'pastaBanner/default.png')) }}" alt="imagem de usuario" title="Menu do Usuário" onclick="toggleProfileMenu(event)" style="cursor: pointer;" />
+              <div class="subs" id="profileDropdown">
+                <a href="{{ url_for('user.perfil') }}">Meu Perfil</a>
+                <hr class="hrC">
+                <a href="{{ url_for('user.enviar_fanart') }}">Enviar Fanart</a>
+                <hr class="hrC">
+                <a href="{{ url_for('auth.logout') }}">Sair</a>
+              </div>
+            </div>
+            {% else %}
+            <a href="{{ url_for('auth.login') }}">
+              <img id="perfil" src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="imagem de usuario" title="Fazer Login" />
+            </a>
+            {% endif %}
+          </div>
         </nav>
         
-        {# Bloco reservado para o banner exclusivo da index #}
         {% block banner %}{% endblock %}
     </header>
 
-    <!-- Exibição de mensagens flash para feedback ao usuário -->
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         <div id="flashModal" class="modal-overlay" style="display: block;">

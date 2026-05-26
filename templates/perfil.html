@@ -1,21 +1,30 @@
 {% extends 'base.html' %}
 {% block title %}Perfil de {{ user.nome }}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+{% endblock %}
 
 {% block content %}
 <div class="perfil-container">
     <div class="perfil-header">
-        <img src="{{ url_for('static', filename='uploads/' + user.foto) }}" alt="Foto de {{ user.nome }}" class="perfil-foto">
-        <h1>{{ user.nome }}</h1>
+        <img src="{{ url_for('static', filename='uploads/' + user.foto) }}" alt="Foto de {{ user.nome }}" class="perfil-foto {{ 'foto-padrao' if user.foto == 'pastaBanner/default.png' else '' }}">
+        <h1 class="fonte-dms">{{ user.nome }}</h1>
         <p class="badge-respiracao">{{ user.respiracao_tipo or 'Sem respiração definida' }}</p>
+        
+        {% if session.get('user_id') == user.id and user.foto != 'pastaBanner/default.png' %}
+        <form action="{{ url_for('user.remover_foto') }}" method="POST" style="margin-top: 10px;" onsubmit="return confirmarRemocao()">
+            <button id="remover-foto" type="submit" class="btn-delete-photo"><img src="{{ url_for('static', filename='uploads/perfil/lixeira.png') }}" alt=""> Remover Foto de Perfil</button>
+        </form>
+        {% endif %}
     </div>
 
     {% if session.get('user_id') == user.id %}
     <section class="perfil-edit">
-        <h2>Editar Meus Dados</h2>
+        <h2 class="fonte-dms">Editar Meus Dados</h2>
         <form action="{{ url_for('user.perfil') }}" method="POST" enctype="multipart/form-data">
             <input type="text" name="nome" value="{{ user.nome }}" placeholder="Nome">
             <input type="email" name="email" value="{{ user.email }}" placeholder="E-mail">
-            <textarea name="biografia" placeholder="Sua biografia...">{{ user.biografia }}</textarea>
+            <textarea name="biografia" placeholder="Sua biografia...">{{ user.biografia or '' }}</textarea>
             
             <label for="respiracao_tipo">Tipo de Respiração:</label>
             <input type="text" name="respiracao_tipo" value="{{ user.respiracao_tipo or '' }}" readonly>
@@ -38,8 +47,20 @@
     <div class="grid-fanarts">
         {% for fanart in fanarts %}
         <div class="card-fanart">
-            <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}">
+            <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}" class="fanart-img">
             <h3>{{ fanart.titulo }}</h3>
+            <div class="card-footer">
+                <form action="{{ url_for('fanart.curtir', fanart_id=fanart.id) }}" method="POST">
+                    <button type="submit" class="btn-like {{ 'active' if fanart.curtiu else '' }}">
+                        {% if fanart['curtiu'] %}
+                            <img src="{{ url_for('static', filename='uploads/fanarts/like.png') }}" class="icon-like" alt="Curtido">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='uploads/fanarts/sem_like.png') }}" class="icon-like" alt="Não Curtido">
+                        {% endif %}
+                        <span>{{ fanart['total_likes'] or 0 }}</span>
+                    </button>
+                </form>
+            </div>
         </div>
         {% endfor %}
     </div>

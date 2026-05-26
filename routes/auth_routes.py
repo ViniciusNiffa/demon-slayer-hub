@@ -6,7 +6,6 @@ bp = Blueprint('auth', __name__)
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
-    # Se o usuário já estiver logado, redireciona para a home
     if 'user_id' in session:
         return redirect(url_for('index'))
 
@@ -16,9 +15,7 @@ def login():
         
         user = get_user_by_email(email)
         
-        # Verifica se o usuário existe e se a senha (hash) coincide com a digitada
         if user and check_password_hash(user['senha'], senha):
-            # Salva o ID e o status de admin na sessão do navegador
             session['user_id'] = user['id']
             session['nome'] = user['nome']
             session['is_admin'] = user['is_admin']
@@ -32,7 +29,6 @@ def login():
 
 @bp.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
-    # Impede acesso à página de cadastro se já estiver logado
     if 'user_id' in session:
         return redirect(url_for('index'))
 
@@ -42,7 +38,6 @@ def cadastro():
         senha = request.form.get('senha')
         confirmar_senha = request.form.get('confirmar_senha')
         
-        # Verifica se o e-mail já está cadastrado para evitar duplicidade
         if get_user_by_email(email):
             flash("Este e-mail já está sendo usado por outro membro da corporação.", "perigo")
         elif senha != confirmar_senha:
@@ -58,6 +53,6 @@ def cadastro():
 
 @bp.route('/logout')
 def logout():
-    session.clear() # Limpa todos os dados da sessão
+    session.clear()
     flash("Você saiu da sua conta.")
     return redirect(url_for('index'))

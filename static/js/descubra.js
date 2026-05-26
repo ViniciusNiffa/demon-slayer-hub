@@ -137,7 +137,6 @@ function mostrarResultado(){
     document.getElementById("respiracaoFinal").innerText = texto
     document.getElementById("imagemRespiracao").src = img
 
-    // Envia o resultado para o servidor de forma assíncrona
     const nomeRespiracao = texto.replace("Sua respiração é: ", "");
     
     fetch('/descubra/salvar', {

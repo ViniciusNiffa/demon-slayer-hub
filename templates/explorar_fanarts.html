@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Galeria de Fanarts{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="perfil-container">
+    <div class="perfil-header">
+        <h1 class="fonte-dms">Galeria da Comunidade</h1>
+        <p>Explore as artes de todos os caçadores de onis!</p>
+    </div>
+
+    <div class="grid-fanarts">
+        {% for fanart in fanarts %}
+        <div class="card-fanart">
+            <a href="{{ url_for('fanart.ver_fanart', fanart_id=fanart.id) }}">
+                <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}" class="fanart-img">
+                <h3>{{ fanart.titulo }}</h3>
+            </a>
+            <p>Por: {{ fanart.autor_nome }}</p>
+            <div class="card-footer">
+                <form action="{{ url_for('fanart.curtir', fanart_id=fanart['id']) }}" method="POST">
+                    <button type="submit" class="btn-like {{ 'active' if fanart['curtiu'] else '' }}">
+                        <img src="{{ url_for('static', filename='uploads/fanarts/' + ('like.png' if fanart['curtiu'] else 'sem_like.png')) }}" 
+                             class="icon-like" alt="Like">
+                        <span>{{ fanart['total_likes'] or 0 }}</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% else %}
+        <div style="grid-column: 1/-1; text-align: center; padding: 50px;">
+            <p>Ainda não há fanarts publicadas. Seja o primeiro!</p>
+            <a href="{{ url_for('user.enviar_fanart') }}" class="btn-save" style="text-decoration: none; display: inline-block; margin-top: 20px;">Enviar Fanart</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

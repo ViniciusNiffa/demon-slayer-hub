@@ -21,7 +21,6 @@ def nova_fanart():
             flash("Título, categoria e imagem são obrigatórios.")
             return redirect(url_for('fanart.nova_fanart'))
 
-        # Gerando nome único para a imagem
         ext = file.filename.split('.')[-1]
         filename = f"{uuid.uuid4()}.{ext}"
         file.save(os.path.join(UPLOAD_FOLDER, filename))
@@ -36,8 +35,9 @@ def nova_fanart():
 
 @fanart_bp.route('/fanarts')
 def fanarts():
-    fanarts_list = search_fanarts()
-    return render_template('index.html', fanarts=fanarts_list)
+    user_id = session.get('user_id')
+    fanarts_list = search_fanarts(user_id=user_id)
+    return render_template('explorar_fanarts.html', fanarts=fanarts_list)
 
 @fanart_bp.route('/fanart/<int:fanart_id>')
 def ver_fanart(fanart_id):
@@ -61,7 +61,7 @@ def curtir(fanart_id):
         unlike_fanart(user_id, fanart_id)
     else:
         like_fanart(user_id, fanart_id)
-    return redirect(url_for('fanart.ver_fanart', fanart_id=fanart_id))
+    return redirect(request.referrer or url_for('index'))
 
 @fanart_bp.route('/fanart/<int:fanart_id>/comentar', methods=['POST'])
 @login_required

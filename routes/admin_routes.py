@@ -17,11 +17,9 @@ def admin():
 
     users = get_all_users()
 
-    # Filtro de busca
     if search:
         users = [user for user in users if search in user['nome'].lower() or search in user['email'].lower()]
 
-    # Ordenação segura: verifica se a chave de ordenação existe nos dados
     if users and order in users[0].keys():
         users = sorted(users, key=lambda x: x[order])
 
@@ -65,7 +63,6 @@ def edit_user(user_id):
 @admin_bp.route('/admin/delete/<int:user_id>')
 @admin_required
 def delete(user_id):
-    # Proteção: impede que o admin delete a própria conta logada
     if session.get('user_id') == user_id:
         flash("Erro: Você não pode deletar sua própria conta administrativa.", "erro")
         return redirect(url_for('admin.admin'))

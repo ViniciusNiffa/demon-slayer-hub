@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block title %}Início{% endblock %} {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
 {% endblock %}
 
 {% block banner %}
@@ -11,12 +12,10 @@
 {% endblock %}
 
 {% block content %}
-  <div id="fundo">
+<div id="fundo">
     <section id="enredo">
-      <h1 class="pJustify">
-        Enredo:
-      </h1>
-      <p class="pJustify">
+        <h1 class="fonte-dms" style="color: #8b0000; margin-bottom: 15px;">Enredo</h1>
+        <p class="pJustify">
         No Japão da era Taisho, Tanjiro Kamado é um menino de bom coração que ganha a vida vendendo carvão.
         <br>
         No entanto, sua vida pacífica é destruída quando um Oni mata sua família inteira.
@@ -25,15 +24,14 @@
         <br>
         Tanjiro parte em uma jornada perigosa para encontrar uma maneira de retornar sua irmã ao normal e destruir o
         Oni que arruinou sua vida.
-      </p>
+        </p>
     </section>
+
     <section id="sobreSite">
-      <h1 class="pJustify">
-        Sobre o site:
-      </h1>
-      <p>
+        <h1 class="fonte-dms" style="color: #8b0000; margin-bottom: 15px;">Sobre o Hub</h1>
+        <p>
         Bem-vindo ao nosso site dedicado ao universo de Demon Slayer (Kimetsu no Yaiba).
-        <br />
+        <br /><br />
         Aqui você encontra um espaço criado para fãs que desejam explorar o mundo do anime de forma
         interativa e
         criativa.
@@ -47,35 +45,39 @@
         Além disso, contamos com uma aba de fanarts da comunidade, um espaço voltado para valorizar a
         criatividade
         dos
-        fãs.
-        <br />
-        Nessa aba, as fanarts do mês ganham destaque especial.
-        
-        <div class="galeria-home">
-            <h2>Fanarts Recentes</h2>
-            <div class="grid-fanarts">
+        fãs e as fanarts do mês ganham destaque especial.
+        </p>
+    </section>
+
+    <div class="galeria-home">
+        <h2 class="fonte-dms" style="text-align: center; margin: 40px 0 20px;">Fanarts Recentes</h2>
+        <div class="grid-fanarts">
                 {% for fanart in fanarts %}
                 <div class="card-fanart">
                     <a href="{{ url_for('fanart.ver_fanart', fanart_id=fanart.id) }}">
-                        <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}">
+                        <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}" class="fanart-img">
                         <h3>{{ fanart.titulo }}</h3>
                     </a>
                     <p>Por: {{ fanart.autor_nome }}</p>
-                    <span class="like-container">
-                        {% if fanart.curtiu %}
-                            <span class="coracao-vermelho">❤️</span>
-                        {% else %}
-                            <span class="coracao-preto">🖤</span>
-                        {% endif %}
-                        {{ fanart.total_likes }}
-                    </span>
+                    <div class="card-footer">
+                        <form action="{{ url_for('fanart.curtir', fanart_id=fanart['id']) }}" method="POST">
+                            <button type="submit" class="btn-like {{ 'active' if fanart['curtiu'] else '' }}">
+                                <img src="{{ url_for('static', filename='uploads/fanarts/' + ('like.png' if fanart['curtiu'] else 'sem_like.png')) }}" 
+                                     class="icon-like" alt="Like">
+                                <span>{{ fanart['total_likes'] or 0 }}</span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 {% else %}
                 <p>Nenhuma fanart encontrada.</p>
                 {% endfor %}
             </div>
-        </div>
-        <br />
+            <br>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="{{ url_for('fanart.fanarts') }}" class="btn-save" style="text-decoration: none; display: inline-block;">Ver todas as Fanarts</a>
+            </div>
+            <br />
         As artes enviadas pela comunidade participam de uma seleção mensal,
         e a fanart que ficar em primeiro lugar será exibida em um mural de destaque dentro dessa aba durante
         todo o
@@ -84,10 +86,8 @@
         Nosso objetivo é oferecer um ambiente envolvente que una entretenimento, interatividade e
         participação
         da
-        comunidade,
-        fazendo com que cada visitante se sinta parte do universo de Demon Slayer desde o primeiro acesso.
-      </p>
-    </section>
+        comunidade.
+    </div>
   </div>
   <footer>
     <p>&copy; 2026 Demon Slayer Hub - Página criada por um fã.</p>

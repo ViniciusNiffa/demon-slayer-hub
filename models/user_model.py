@@ -7,7 +7,6 @@ def create_user(nome, email, senha, foto=DEFAULT_IMAGE):
     cursor = conn.cursor()
 
     try:
-        # Criptografamos aqui para garantir que NENHUM usuário seja criado sem hash
         hashed_password = generate_password_hash(senha)
         cursor.execute(
             """INSERT INTO users (nome, email, senha, foto) VALUES (?, ?, ?, ?)""",
@@ -204,7 +203,6 @@ def like_fanart(user_id, fanart_id):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        # Usamos INSERT OR IGNORE para evitar que o mesmo usuário curta várias vezes
         cursor.execute(
             'INSERT INTO likes (user_id, fanart_id) VALUES (?, ?)',
             (user_id, fanart_id)
@@ -247,11 +245,19 @@ def has_user_liked(user_id, fanart_id):
         cursor.close()
         conn.close()
 
-def get_fanarts_by_user(user_id):
+def get_fanarts_by_user(user_id, viewer_id=None):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute('SELECT * FROM fanarts WHERE user_id = ?', (user_id,))
+        sql = """
+            SELECT f.*, COUNT(l.id) AS total_likes,
+            (SELECT 1 FROM likes WHERE fanart_id = f.id AND user_id = ?) AS curtiu
+            FROM fanarts f
+            LEFT JOIN likes l ON f.id = l.fanart_id
+            WHERE f.user_id = ?
+            GROUP BY f.id
+        """
+        cursor.execute(sql, (viewer_id, user_id))
         fanarts = cursor.fetchall()
         return fanarts
     except Exception as e:
@@ -295,11 +301,10 @@ def create_fanart(user_id, titulo, descricao, imagem, categoria):
         cursor.close()
         conn.close()
 
-def search_fanarts(titulo=None, categoria=None, ordem='recentes', user_id=None):
+def search_fanarts(titulo=None, categoria=None, ordem='recentes', user_id=None, limit=None):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        # Selecionamos fanarts, o nome do autor, total de likes e se o usuário logado curtiu
         sql = """
             SELECT f.*, u.nome AS autor_nome, COUNT(l.id) AS total_likes,
             (SELECT 1 FROM likes WHERE fanart_id = f.id AND user_id = ?) AS curtiu
@@ -324,6 +329,10 @@ def search_fanarts(titulo=None, categoria=None, ordem='recentes', user_id=None):
             sql += " ORDER BY total_likes DESC, f.created_at DESC"
         else:
             sql += " ORDER BY f.created_at DESC"
+            
+        if limit:
+            sql += " LIMIT ?"
+            params.append(limit)
             
         cursor.execute(sql, params)
         return cursor.fetchall()
@@ -411,7 +420,6 @@ def get_comentarios_by_fanart(fanart_id):
     conn = get_connection()
     cursor = conn.cursor()
     try:
-        # Buscamos o comentário e o nome de quem comentou (usando JOIN)
         cursor.execute('''
             SELECT c.*, u.nome 
             FROM comentarios c
