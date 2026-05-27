@@ -15,6 +15,7 @@
 .fonte-dms{
     font-family: 'bloodcrow';
     font-weight: bold;
+    color: black !important;
 }
 .hrC{
     height: 1px;

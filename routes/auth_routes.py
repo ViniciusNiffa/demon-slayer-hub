@@ -19,6 +19,7 @@ def login():
             session['user_id'] = user['id']
             session['nome'] = user['nome']
             session['is_admin'] = user['is_admin']
+            session['user_foto'] = user['foto']
             
             flash(f"Bem-vindo de volta, caçador {user['nome']}!", "sucesso")
             return redirect(url_for('index'))

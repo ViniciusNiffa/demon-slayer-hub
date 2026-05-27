@@ -1,200 +1,149 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
+{% block title %}Mangas{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/manga.css')}}">
+{% endblock %}
 
-<head>
-  <meta charset="UTF-8">
-  <title>Demon Slayer Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="img/logo_demon_slayer.png">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/menu.css">
-  <link rel="stylesheet" href="../css/manga.css">
-  <script src="../js/menu.js"></script>
-</head>
-
-<body>
-  <main>
-    <header id="cabecalho">
-      <nav class="topnav" id="myTopnav">
-        <a href="./index.html"><img id="logo" src="../img/pastaBanner/logo_demon_slayer.png" alt="logo Demon Slayer"
-            title="Logo Demon Slayer" /></a>
-        <div id="divMenu"><!-- Inicio divMenu -->
-          <a href="../index.html">Início</a>
-          <hr class="hrM">
-          <a href="arcos.html">Arcos</a>
-          <hr class="hrM">
-          <a href="mangas.html" id="active">Mangas</a>
-          <hr class="hrM">
-          <a class="cMenu" href="mundo.html">Mundo</a>
-          <hr class="hrM">
-          <div class="subMenu">
-              <button id="btn"><a href="mundo.html">Mundo</a></button>
-              <div class="subs">
-                  <a href="mundo/personagens.html">Personagens</a>
-                  <hr class="hrC">
-                  <a href="mundo/respiracoes.html">Respirações</a>
-              </div>
-          </div>
-          <a href="descubra_respiracao.html" class="cMenu">Descubra a sua respiração</a>
-          <hr class="hrM">
-          <a href="fanarts.html" class="cMenu">Fanarts da comunidade</a>
-          <div class="subMenu"><!-- Inicio div comunidade --> 
-            <button id="btn">Comunidade</button>
-            <div class="subs"><!-- Inicio div subComunidade -->
-              <a href="descubra_respiracao.html">Descubra a sua respiração</a>
-              <hr class="hrC">
-              <a href="fanarts.html">Fanarts da comunidade</a>
-            </div><!-- Fim div subComunidade -->
-          </div><!-- Fim div comunidade -->
-        </div><!-- Fim divMenu -->
-        <a href="javascript:void(0);" id="icon" onclick="myFunction()">&#9776;</a>
-        <a href="../pages/login.html"><img id="perfil" src="../img/pastaBanner/imagemUsuario.png" alt="imagem de usuario"
-            title="Imagem do usuario" /></a>
-      </nav>
-    </header>
+{% block content %}
     <div id="mangas-container">
         <div class="manga-item">
             <a href="mangas_html/manga_1.html">
-                <img src="../img/mangas/manga_1_demon_slayer.webp" alt="Capa do manga demon slayer volume 1"
+                <img src="{{url_for('static', filename='uploads/mangas/manga_1_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 1"
                     title="Imagem"><!-- Terminar isso depois -->
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 1</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_2.html">
-                <img src="../img/mangas/manga_2_demon_slayer.webp" alt="Capa do manga demon slayer volume 2">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_2_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 2">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 2</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_3.html">
-                <img src="../img/mangas/manga_3_demon_slayer.webp" alt="Capa do manga demon slayer volume 3">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_3_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 3">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 3</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_4.html">
-                <img src="../img/mangas/manga_4_demon_slayer.webp" alt="Capa do manga demon slayer volume 4">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_4_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 4">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 4</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_5.html">
-                <img src="../img/mangas/manga_5_demon_slayer.webp" alt="Capa do manga demon slayer volume 5">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_5_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 5">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 5</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_6.html">
-                <img src="../img/mangas/manga_6_demon_slayer.webp" alt="Capa do manga demon slayer volume 6">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_6_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 6">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 6</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_7.html">
-                <img src="../img/mangas/manga_7_demon_slayer.webp" alt="Capa do manga demon slayer volume 7">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_7_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 7">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 7</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_8.html">
-                <img src="../img/mangas/manga_8_demon_slayer.webp" alt="Capa do manga demon slayer volume 8">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_8_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 8">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 8</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_9.html">
-                <img src="../img/mangas/manga_9_demon_slayer.webp" alt="Capa do manga demon slayer volume 9">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_9_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 9">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 9</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_10.html">
-                <img src="../img/mangas/manga_10_demon_slayer.webp" alt="Capa do manga demon slayer volume 10">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_10_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 10">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 10</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_11.html">
-                <img src="../img/mangas/manga_11_demon_slayer.webp" alt="Capa do manga demon slayer volume 11">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_11_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 11">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 11</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_12.html">
-                <img src="../img/mangas/manga_12_demon_slayer.webp" alt="Capa do manga demon slayer volume 12">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_12_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 12">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 12</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_13.html">
-                <img src="../img/mangas/manga_13_demon_slayer.webp" alt="Capa do manga demon slayer volume 13">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_13_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 13">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 13</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_14.html">
-                <img src="../img/mangas/manga_14_demon_slayer.webp" alt="Capa do manga demon slayer volume 14">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_14_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 14">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 14</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_15.html">
-                <img src="../img/mangas/manga_15_demon_slayer.webp" alt="Capa do manga demon slayer volume 15">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_15_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 15">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 15</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_16.html">
-                <img src="../img/mangas/manga_16_demon_slayer.webp" alt="Capa do manga demon slayer volume 16">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_16_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 16">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 16</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_17.html">
-                <img src="../img/mangas/manga_17_demon_slayer.webp" alt="Capa do manga demon slayer volume 17">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_17_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 17">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 17</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_18.html">
-                <img src="../img/mangas/manga_18_demon_slayer.webp" alt="Capa do manga demon slayer volume 18">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_18_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 18">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 18</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_19.html">
-                <img src="../img/mangas/manga_19_demon_slayer.webp" alt="Capa do manga demon slayer volume 19">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_19_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 19">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 19</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_20.html">
-                <img src="../img/mangas/manga_20_demon_slayer.webp" alt="Capa do manga demon slayer volume 20">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_20_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 20">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 20</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_21.html">
-                <img src="../img/mangas/manga_21_demon_slayer.webp" alt="Capa do manga demon slayer volume 21">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_21_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 21">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 21</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_22.html">
-                <img src="../img/mangas/manga_22_demon_slayer.webp" alt="Capa do manga demon slayer volume 22">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_22_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 22">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 22</p>
             </a>
         </div>
         <div class="manga-item">
             <a href="mangas_html/manga_23.html">
-                <img src="../img/mangas/manga_23_demon_slayer.webp" alt="Capa do manga demon slayer volume 23">
+                <img src="{{url_for('static', filename='uploads/mangas/manga_23_demon_slayer.webp')}}" alt="Capa do manga demon slayer volume 23">
                 <p>Demon Slayer - Kimetsu No Yaiba Vol. 23</p>
             </a>
         </div>
     </div>
-</body>
-
-</html>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Editar Caçador{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <header class="admin-header">
+        <h1><i class="fas fa-user-edit"></i> Alterar Dados do Membro</h1>
+        <p>Editando perfil de: <strong>{{ user.nome }}</strong></p>
+    </header>
+
+    <section class="perfil-edit">
+        <form action="{{ url_for('admin.edit_user', user_id=user.id) }}" method="POST" enctype="multipart/form-data">
+            <label>Nome do Caçador:</label>
+            <input type="text" name="nome" value="{{ user.nome }}" required>
+            
+            <label>E-mail:</label>
+            <input type="email" name="email" value="{{ user.email }}" required>
+            
+            <label>Biografia:</label>
+            <textarea name="biografia" rows="4">{{ user.biografia or '' }}</textarea>
+            
+            <label>Tipo de Respiração:</label>
+            <input type="text" name="respiracao_tipo" value="{{ user.respiracao_tipo or '' }}">
+
+            <label>Alterar Foto de Perfil:</label>
+            <input type="file" name="foto" accept="image/*">
+            
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <button type="submit" class="btn-save" style="flex: 1;">Salvar Alterações</button>
+                <a href="{{ url_for('admin.admin') }}" class="btn-delete-photo" style="text-align: center; flex: 1; padding-top: 15px;">Cancelar</a>
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock %}

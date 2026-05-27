@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Criar Novo Usuário{% endblock %}
+
+{% block extra_css %}
+{# Você pode precisar criar ou ajustar este arquivo CSS para estilizar o formulário #}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/recrutar.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="page-title">Criar Novo Usuário</h1>
+
+    <form method="POST" action="{{ url_for('admin.create_user_admin') }}" class="form-container">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmar_senha">Confirmar Senha:</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="is_admin" name="is_admin" value="1">
+            <label for="is_admin">Tornar Administrador</label>
+        </div>
+
+        <button type="submit" class="btn-submit">Criar Usuário</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Descubra sua Respiração{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form_styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="quiz-main-container">
+    <div id="quiz-card" class="container">
+        <div id="inicio">
+            <h1 class="page-title">Descubra sua Respiração</h1>
+            <p style="text-align: center; margin-bottom: 25px; color: #ccc;">
+                O caminho de um caçador começa com sua essência. Responda às perguntas e encontre o estilo que flui em seu sangue.
+            </p>
+            <button onclick="iniciarQuiz()" class="btn-submit" style="width: 100%;">Começar o Teste</button>
+        </div>
+
+        <div id="perguntaBox" style="display: none;">
+            <h2 id="pergunta" class="page-title" style="font-size: 1.4rem; border-bottom: 1px solid #444;"></h2>
+            <div id="opcoes" class="form-container">
+            </div>
+        </div>
+
+        <div id="resultado" style="display: none; text-align: center;">
+            <h2 id="respiracaoFinal" class="page-title" style="color: #e63946;"></h2>
+            <div class="resultado-img-wrap" style="margin: 20px 0;">
+                <img id="imagemRespiracao" src="" alt="Sua Respiração" style="max-width: 100%; border-radius: 8px; border: 2px solid #800505; box-shadow: 0 0 15px rgba(128, 5, 5, 0.5);">
+            </div>
+            <p style="margin-bottom: 20px;">Sua respiração foi vinculada ao seu registro na Corporação.</p>
+            <a href="{{ url_for('user.perfil') }}" class="btn-submit" style="display: block; text-decoration: none;">Ver Meu Perfil</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/descubra.js') }}"></script>
+{% endblock %}

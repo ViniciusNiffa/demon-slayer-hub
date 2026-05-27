@@ -7,11 +7,16 @@
 {% block content %}
 <div class="perfil-container">
     <div class="perfil-header">
-        <img src="{{ url_for('static', filename='uploads/' + user.foto) }}" alt="Foto de {{ user.nome }}" class="perfil-foto {{ 'foto-padrao' if user.foto == 'pastaBanner/default.png' else '' }}">
+        {% if user.foto and user.foto not in ['None', 'default.png'] %}
+            <img src="{{ url_for('static', filename='uploads/' + user.foto) }}" alt="Foto de {{ user.nome }}" class="perfil-foto {{ 'foto-padrao' if 'default.png' in user.foto else '' }}">
+        {% else %}
+            <img src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="Foto de {{ user.nome }}" class="perfil-foto foto-padrao">
+        {% endif %}
+        
         <h1 class="fonte-dms">{{ user.nome }}</h1>
         <p class="badge-respiracao">{{ user.respiracao_tipo or 'Sem respiração definida' }}</p>
         
-        {% if session.get('user_id') == user.id and user.foto != 'pastaBanner/default.png' %}
+        {% if session.get('user_id') == user.id and user.foto and user.foto != 'None' and 'default.png' not in user.foto %}
         <form action="{{ url_for('user.remover_foto') }}" method="POST" style="margin-top: 10px;" onsubmit="return confirmarRemocao()">
             <button id="remover-foto" type="submit" class="btn-delete-photo"><img src="{{ url_for('static', filename='uploads/perfil/lixeira.png') }}" alt=""> Remover Foto de Perfil</button>
         </form>

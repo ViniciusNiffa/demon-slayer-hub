@@ -4,7 +4,7 @@ from routes.auth_routes import bp as auth_bp
 from routes.user_routes import user_bp
 from routes.admin_routes import admin_bp
 from routes.fanart_routes import fanart_bp
-from models.quiz_routes import quiz_bp
+from routes.quiz_routes import quiz_bp
 from models.user_model import search_fanarts
 
 app = Flask(__name__)

@@ -45,10 +45,9 @@
     align-items: right;
     justify-content: space-between;
     transition: transform 0.5s ease;
-    margin-top: 25px;
-    margin-bottom: 25px;
     margin-right: 25px;
     z-index: 100;
+    justify-content: center;
 }
 
 #logo:hover,
@@ -105,7 +104,7 @@
     text-shadow: 0 0 4px white;
 }
 
-.subMenu {
+.subMenu, #subPerfil {
     float: left;
 }
 
@@ -164,6 +163,10 @@
     #divMenu a {
         font-size: 14px;
     }
+    
+    .subMenu #btn{
+        font-size: 14px;
+    }
 }
 
 @media all and (max-width:750px) {
@@ -212,10 +215,10 @@
     #icon {
         display: block !important;
         margin-left: auto;
-        margin-right: 25px;
+        margin-right: 70px; /* Aumentamos a margem para dar espaço para a foto que está no canto */
         cursor: pointer;
         color: white;
-        margin-top: 40px;
+        margin-top: 25px;
         font-size: 15px;
     }
 
@@ -239,13 +242,9 @@
     #logo {
         width: 60px;
     }
-    #icon{
-        margin-top: 23px;
-    }
 
     #perfil {
         width: 35px;
-        margin-top: 15px;
     }
     .topnav {
         height: 70px;
@@ -253,5 +252,18 @@
 
     body {
         padding-top: 70px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .profile-section {
+        display: flex !important; 
+        top: 15px;
+    }
+
+    #perfil {
+        width: 35px !important;
+        height: 35px !important;
+        border-radius: 50%;
+        object-fit: cover;
     }
 }

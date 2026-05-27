@@ -2,15 +2,15 @@ from database import get_connection
 from config import DEFAULT_IMAGE
 from werkzeug.security import generate_password_hash
 
-def create_user(nome, email, senha, foto=DEFAULT_IMAGE):
+def create_user(nome, email, senha, foto=DEFAULT_IMAGE, is_admin=0):
     conn = get_connection()
     cursor = conn.cursor()
 
     try:
         hashed_password = generate_password_hash(senha)
         cursor.execute(
-            """INSERT INTO users (nome, email, senha, foto) VALUES (?, ?, ?, ?)""",
-            (nome, email, hashed_password, foto)
+            """INSERT INTO users (nome, email, senha, foto, is_admin) VALUES (?, ?, ?, ?, ?)""",
+            (nome, email, hashed_password, foto, is_admin)
             )
         conn.commit()
         return True

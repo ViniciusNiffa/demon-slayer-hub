@@ -26,7 +26,13 @@
 #enredo h1, #sobreSite h1{
     font-family: "bloodcrow";
     font-size: 40px;
-    color: black;
+    color: rgb(255, 0, 0);
+}
+
+#h2Fanarts {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin: 20px 0;
 }
 #banner{
     width: 75%;
@@ -49,6 +55,8 @@
     height: auto;
     align-items: center;
 }
+
+
 @media all and (max-width:750px){
     #banner{
         display: none;
