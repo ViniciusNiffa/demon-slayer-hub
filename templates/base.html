@@ -24,35 +24,33 @@
           <a href="{{ url_for('index') }}"><img id="logo" src="{{ url_for('static', filename='uploads/pastaBanner/logo_demon_slayer.png') }}" alt="logo Demon Slayer"
               title="Logo Demon Slayer" /></a>
           <div id="divMenu">
-            <a href="{{ url_for('index') }}">Início</a>
+            <a href="{{ url_for('index') }}">Home</a>
             <hr class="hrM">            
-            <a href="{{ url_for('arcos') }}">Arcos</a>
+            <a href="{{ url_for('arcos') }}">Arcs</a>
             <hr class="hrM">
             <a href="{{ url_for('mangas') }}">Mangas</a>
             <hr class="hrM">
-            
             <div class="subMenu">
-              <button id="btn">Mundo</button>
+              <button id="btn">World</button>
               <div class="subs">
-                <a href="{{ url_for('personagens') }}">Personagens</a>
+                <a href="{{ url_for('personagens') }}">Characters</a>
                 <hr class="hrC">
-                <a href="{{ url_for('respiracoes') }}">Respirações</a>
+                <a href="{{ url_for('respiracoes') }}">Breathings</a>
               </div>
             </div>
-            
-            <a href="{{ url_for('quiz.descubra') }}" class="cMenu">Descubra a sua respiração</a>
+            <a href="{{ url_for('quiz.descubra') }}" class="cMenu">Discover your breathing style</a>
             <hr class="hrM">
-            <a href="{{ url_for('fanart.fanarts') }}" class="cMenu">Fanarts da comunidade</a>
+            <a href="{{ url_for('fanart.fanarts') }}" class="cMenu">Community Fan Art</a>
 
             <div class="subMenu">
-              <button id="btn">Comunidade</button>
+              <button id="btn">Community</button>
               <div class="subs">
-                <a href="{{ url_for('quiz.descubra') }}">Descubra a sua respiração</a>
+                <a href="{{ url_for('quiz.descubra') }}">Discover your breathing style</a>
                 <hr class="hrC">
-                <a href="{{ url_for('fanart.fanarts') }}">Fanarts da comunidade</a>
+                <a href="{{ url_for('fanart.fanarts') }}">Community Fan Art</a>
                 {% if session.get('user_id') %}
                 <hr class="hrC">
-                <a href="{{ url_for('user.enviar_fanart') }}">Enviar minha Fanart</a>
+                <a href="{{ url_for('user.enviar_fanart') }}">Submit my Fan Art</a>
                 {% endif %}
               </div>
             </div>
@@ -68,13 +66,13 @@
                 <img id="perfil" src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="imagem de usuario" title="Menu do Usuário" onclick="toggleProfileMenu(event)" style="cursor: pointer;" />
               {% endif %}
               <div class="subs" id="profileDropdown">
-                <a href="{{ url_for('user.perfil') }}">Meu Perfil</a>
+                <a href="{{ url_for('user.perfil') }}">My Profile</a>
                 <hr class="hrC">
                     {% if session.is_admin %}
-                <a href="{{ url_for('admin.admin') }}">Painel Admin</a>
-                    {% endif %}
+                <a href="{{ url_for('admin.admin') }}">Admin Panel</a>
                 <hr class="hrC">
-                <a href="{{ url_for('user.enviar_fanart') }}">Enviar Fanart</a>
+                    {% endif %}
+                <a href="{{ url_for('user.enviar_fanart') }}">Submit Fan Art</a>
                 <hr class="hrC">
                 <a href="{{ url_for('auth.logout') }}">Sair</a>
               </div>

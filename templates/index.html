@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %}Início{% endblock %} {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/fanart.css') }}">
 {% endblock %}
 
 {% block banner %}
@@ -14,9 +14,10 @@
 {% block content %}
 <div id="fundo">
     <section id="enredo">
-        <h1 class="fonte-dms">Enredo</h1>
+        <h1 class="fonte-dms">Plot</h1>
         <p class="pJustify">
         No Japão da era Taisho, Tanjiro Kamado é um menino de bom coração que ganha a vida vendendo carvão.
+        In Japan during the era Taisho, Tanjiro Kamado is a boy with a good heart that 
         <br>
         No entanto, sua vida pacífica é destruída quando um Oni mata sua família inteira.
         <br>
@@ -74,8 +75,8 @@
                 {% endfor %}
             </div>
             <br>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="{{ url_for('fanart.fanarts') }}" class="btn-save" style="text-decoration: none; display: inline-block;">Ver todas as Fanarts</a>
+            <div id="divFanarts">
+                <a href="{{ url_for('fanart.fanarts') }}" id="ver-fanarts" class="btn-save" style="text-decoration: none; display: inline-block;">Ver todas as Fanarts</a>
             </div>
             <br />
         As artes enviadas pela comunidade participam de uma seleção mensal,

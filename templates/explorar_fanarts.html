@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Galeria de Fanarts{% endblock %}
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/fanart.css') }}">
 {% endblock %}
 
 {% block content %}
-<div class="perfil-container">
+<div class="fanart-container">
     <div class="perfil-header">
-        <h1 class="fonte-dms">Galeria da Comunidade</h1>
-        <p>Explore as artes de todos os caçadores de onis!</p>
+        <h1 class="fonte-dms">Community Gallery</h1>
+        <p>Explore the art of all the demon slayers!</p>
     </div>
 
     <div class="grid-fanarts">
@@ -27,12 +27,17 @@
                         <span>{{ fanart['total_likes'] or 0 }}</span>
                     </button>
                 </form>
+                <form action="{{ url_for('fanart.comentar', fanart_id=fanart['id']) }}" method="POST" name="comentario">
+                    <button type="submit" class="btn-comentario">
+                        <img id="icon-comentario" src="{{ url_for('static', filename='uploads/fanarts/comentario.png') }}" alt="botão de comentário">
+                    </button>
+                </form>
             </div>
         </div>
         {% else %}
         <div style="grid-column: 1/-1; text-align: center; padding: 50px;">
-            <p>Ainda não há fanarts publicadas. Seja o primeiro!</p>
-            <a href="{{ url_for('user.enviar_fanart') }}" class="btn-save" style="text-decoration: none; display: inline-block; margin-top: 20px;">Enviar Fanart</a>
+            <p>There are no fan arts published yet. Be the first one!</p>
+            <a href="{{ url_for('user.enviar_fanart') }}" class="btn-save" style="text-decoration: none; display: inline-block; margin-top: 20px;">Submit Fan art</a>
         </div>
         {% endfor %}
     </div>

@@ -1,3 +1,15 @@
+.fanart-container {
+    max-width: 900px;
+    overflow: hidden;
+    width: 95%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #2f0404c1;
+    border: 2px solid #333;
+    border-radius: 15px;
+    color: black;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
 #fanarts {
     display: flex;
     margin: 0 auto;
@@ -76,6 +88,92 @@
 
 #envie:hover {
     transform: scale(1.05);
+}
+
+#icon-comentario {
+    background-color: blue;
+}
+
+.grid-fanarts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    width: 100%; 
+    gap: 20px;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.card-fanart {
+    background: none;
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.fanart-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.card-fanart h3 {
+    font-size: 1.1em;
+    margin: 5px 0;
+    color: black;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.card-footer {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.btn-like {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: black;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    width: fit-content;
+    margin: 0 auto;
+    pointer-events: auto;
+}
+
+
+.btn-like img {
+    pointer-events: none;
+}
+
+.btn-like:hover, .btn-like img:hover {
+    filter: invert(100%);
+}
+
+.icon-like {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.btn-like.active {
+    border-color: #e63946;
+    background-color: rgba(230, 57, 70, 0.1);
 }
 
 @media all and (max-width: 900px) {
