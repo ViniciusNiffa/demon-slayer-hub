@@ -61,9 +61,9 @@
             <div class="subPerfil profile-menu">
               {% set user_foto = session.get('user_foto') %}
               {% if user_foto and user_foto not in ['None', 'default.png'] %}
-                <img id="perfil" src="{{ url_for('static', filename='uploads/' + user_foto) }}" alt="imagem de usuario" title="Menu do Usuário" onclick="toggleProfileMenu(event)" style="cursor: pointer;" />
+                <img id="perfil" src="{{ url_for('static', filename='uploads/' + user_foto) }}" alt="user image" title="User Menu" onclick="toggleProfileMenu(event)" style="cursor: pointer;" />
               {% else %}
-                <img id="perfil" src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="imagem de usuario" title="Menu do Usuário" onclick="toggleProfileMenu(event)" style="cursor: pointer;" />
+                <img id="perfil" src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="user image" title="User Menu" onclick="toggleProfileMenu(event)" style="cursor: pointer;" />
               {% endif %}
               <div class="subs" id="profileDropdown">
                 <a href="{{ url_for('user.perfil') }}">My Profile</a>
@@ -74,12 +74,12 @@
                     {% endif %}
                 <a href="{{ url_for('user.enviar_fanart') }}">Submit Fan Art</a>
                 <hr class="hrC">
-                <a href="{{ url_for('auth.logout') }}">Sair</a>
+                <a href="{{ url_for('auth.logout') }}">Exit</a>
               </div>
             </div>
             {% else %}
             <a href="{{ url_for('auth.login') }}">
-              <img id="perfil" src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="imagem de usuario" title="Fazer Login" />
+              <img id="perfil" src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="user image" title="Login" />
             </a>
             {% endif %}
           </div>
@@ -96,7 +96,7 @@
             {% for category, message in messages %}
               <p class="msg-text">{{ message }}</p>
             {% endfor %}
-            <button class="btn-modal {{ messages[0][0] }}" onclick="closeModal()">Entendido</button>
+            <button class="btn-modal {{ messages[0][0] }}" onclick="closeModal()">Understood</button>
           </div>
         </div>
       {% endif %}

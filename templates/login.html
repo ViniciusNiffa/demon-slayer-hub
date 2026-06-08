@@ -7,20 +7,20 @@
 {% block content %}
 <section id="divLogin" class="auth-container">
     <img src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="">
-    <h1 class="titulo">Acessar Hub</h1>
+    <h1 class="titulo">Access Hub</h1>
     <form action="{{ url_for('auth.login') }}" method="POST">
         <div id="loginSenha">
             <div class="form-group">
                 <input type="email" name="email" id="email" placeholder="E-mail" required>
             </div>
             <div class="form-group">
-                <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                <img id="togglePassword" src="{{ url_for('static', filename='uploads/login/visualizar.png') }}" alt="Ver Senha" onclick="togglePasswordVisibility()">
+                <input type="password" name="senha" id="senha" placeholder="Password" required>
+                <img id="togglePassword" src="{{ url_for('static', filename='uploads/login/visualizar.png') }}" alt="View Password" onclick="togglePasswordVisibility()">
             </div>
         </div>
-        <button type="submit">Entrar</button>
+        <button type="submit">Login</button>
     </form>
-    <p id="insc">Ainda não é um membro? <a href="{{ url_for('auth.cadastro') }}">Cadastre-se</a></p>
+    <p id="insc">Not a member yet? <a href="{{ url_for('auth.cadastro') }}">Sign up</a></p>
 </section>
 {% endblock %}
 

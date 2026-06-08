@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Início{% endblock %} {% block extra_css %}
+{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/fanart.css') }}">
 {% endblock %}
@@ -22,15 +22,13 @@
         <br>
         His younger sister, Nesuko, is the only survivor, but herself is transformed into an Oni! 
         <br>
-        Tanjiro parte em uma jornada perigosa para encontrar uma maneira de retornar sua irmã ao normal e destruir o
-        Oni que arruinou sua vida.
         Tanjiro goes on a dangerous journey to find a way to bring his sister back to normal and destroy the Oni who
         ruined his life.
         </p>
     </section>
 
     <section id="sobreSite">
-        <h1 class="fonte-dms">Sobre o Hub</h1>
+        <h1 class="fonte-dms">About the Hub</h1>
         <p>
         Welcome to my website dedicated to the Demon Slayer universe (Kimetsu no Yaiba).
         <br />
@@ -40,15 +38,13 @@
         <br />
         The main highlight is the interactive mini-game, where you can discover which Breathing Style suits
         you best, making the experience unique and fun.
-        Além disso, contamos com uma aba de fanarts da comunidade, um espaço voltado para valorizar a
-        criatividade
-        dos
-        fãs e as fanarts do mês ganham destaque especial.
+        In addition, we have a community fan art section, a space dedicated 
+        to celebrating fans' creativity, and the fan arts of the month receive special recognition.
         </p>
     </section>
 
     <div class="galeria-home">
-        <h2 class="fonte-dms" id="h2Fanarts">Fanarts Recentes</h2>
+        <h2 class="fonte-dms" id="h2Fanarts">Recent Fan Arts</h2>
         <div class="grid-fanarts">
                 {% for fanart in fanarts %}
                 <div class="card-fanart">
@@ -56,7 +52,7 @@
                         <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}" class="fanart-img">
                         <h3>{{ fanart.titulo }}</h3>
                     </a>
-                    <p>Por: {{ fanart.autor_nome }}</p>
+                    <p>By: {{ fanart.autor_nome }}</p>
                     <div class="card-footer">
                         <form action="{{ url_for('fanart.curtir', fanart_id=fanart['id']) }}" method="POST">
                             <button type="submit" class="btn-like {{ 'active' if fanart['curtiu'] else '' }}">
@@ -68,26 +64,20 @@
                     </div>
                 </div>
                 {% else %}
-                <p>Nenhuma fanart encontrada.</p>
+                <p>No fan art found.</p>
                 {% endfor %}
             </div>
             <br>
             <div id="divFanarts">
-                <a href="{{ url_for('fanart.fanarts') }}" id="ver-fanarts" class="btn-save" style="text-decoration: none; display: inline-block;">Ver todas as Fanarts</a>
+                <a href="{{ url_for('fanart.fanarts') }}" id="ver-fanarts" class="btn-save" style="text-decoration: none; display: inline-block;">View all Fan Arts</a>
             </div>
             <br />
-        As artes enviadas pela comunidade participam de uma seleção mensal,
-        e a fanart que ficar em primeiro lugar será exibida em um mural de destaque dentro dessa aba durante
-        todo o
-        mês
-        seguinte, dando visibilidade e reconhecimento ao artista.
-        Nosso objetivo é oferecer um ambiente envolvente que una entretenimento, interatividade e
-        participação
-        da
-        comunidade.
+        The artworks submitted by the community participate in a monthly selection, and the fan art that comes in first place will 
+        be featured on a showcase board within this tab throughout the following month, giving visibility and recognition to the artist.
+        Our goal is to provide an immersive environment that brings together entertainment, interactivity, and community participation.
     </div>
   </div>
   <footer>
-    <p>&copy; 2026 Demon Slayer Hub - Página criada por um fã.</p>
+    <p>&copy; 2026 Demon Slayer Hub - Page create by a fan.</p>
   </footer>
 {% endblock %}

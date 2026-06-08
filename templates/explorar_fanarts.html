@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Galeria de Fanarts{% endblock %}
+{% block title %}Fan Art Gallery{% endblock %}
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/fanart.css') }}">
 {% endblock %}
@@ -18,7 +18,7 @@
                 <img src="{{ url_for('static', filename='uploads/' + fanart.imagem) }}" alt="{{ fanart.titulo }}" class="fanart-img">
                 <h3>{{ fanart.titulo }}</h3>
             </a>
-            <p>Por: {{ fanart.autor_nome }}</p>
+            <p>By: {{ fanart.autor_nome }}</p>
             <div class="card-footer">
                 <form action="{{ url_for('fanart.curtir', fanart_id=fanart['id']) }}" method="POST">
                     <button type="submit" class="btn-like {{ 'active' if fanart['curtiu'] else '' }}">
@@ -29,7 +29,7 @@
                 </form>
                 <form action="{{ url_for('fanart.comentar', fanart_id=fanart['id']) }}" method="POST" name="comentario">
                     <button type="submit" class="btn-comentario">
-                        <img id="icon-comentario" src="{{ url_for('static', filename='uploads/fanarts/comentario.png') }}" alt="botão de comentário">
+                        <img id="icon-comentario" src="{{ url_for('static', filename='uploads/fanarts/comentario.png') }}" alt="comment button">
                     </button>
                 </form>
             </div>

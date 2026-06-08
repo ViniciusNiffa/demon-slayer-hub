@@ -10,37 +10,37 @@ let perguntaAtual = 0
 let perguntas = [
 
 {
-    pergunta:"Qual dessas qualidades mais combina com você?",
+    pergunta:"Which of these qualities best fits you?",
     opcoes:[
-        {texto:"Calmo e estratégico", tipo:"agua"},
-        {texto:"Corajoso e determinado", tipo:"fogo"},
-        {texto:"Rápido e preciso", tipo:"trovao"},
-        {texto:"Agressivo e imprevisível", tipo:"vento"}
+        {texto:"Calm and strategic", tipo:"agua"},
+        {texto:"Brave and determined", tipo:"fogo"},
+        {texto:"Fast and precise", tipo:"trovao"},
+        {texto:"Aggressive and unpredictable", tipo:"vento"}
     ]
 },
 
 {
-    pergunta:"Em uma luta você prefere:",
+    pergunta:"In a fight, you prefer:",
     opcoes:[
-        {texto:"Analisar antes de agir", tipo:"agua"},
-        {texto:"Atacar com tudo", tipo:"fogo"},
-        {texto:"Esperar o momento perfeito", tipo:"trovao"},
-        {texto:"Atacar de vários ângulos", tipo:"vento"}
+        {texto:"Analyze before acting", tipo:"agua"},
+        {texto:"Attack head-on", tipo:"fogo"},
+        {texto:"Wait for the perfect moment", tipo:"trovao"},
+        {texto:"Attack from multiple angles", tipo:"vento"}
     ]
 },
 
 {
-    pergunta:"Qual elemento você acha mais legal?",
+    pergunta:"Which element do you find coolest?",
     opcoes:[
-        {texto:"Água", tipo:"agua"},
-        {texto:"Fogo", tipo:"fogo"},
-        {texto:"Trovão", tipo:"trovao"},
-        {texto:"Vento", tipo:"vento"}
+        {texto:"Water", tipo:"agua"},
+        {texto:"Fire", tipo:"fogo"},
+        {texto:"Thunder", tipo:"trovao"},
+        {texto:"Wind", tipo:"vento"}
     ]
 },
 
 {
-    pergunta:"Qual desses caçadores você mais gosta?",
+    pergunta:"Which of these slayers do you like most?",
     opcoes:[
         {texto:"Tomioka", tipo:"agua"},
         {texto:"Rengoku", tipo:"fogo"},
@@ -115,29 +115,29 @@ function mostrarResultado(){
     let img=""
 
     if(maior=="agua"){
-        texto="Sua respiração é: Respiração da Água"
+        texto="Your breathing style is: Water Breathing"
         img="/static/img/descubra/respAguaa.webp"
     }
 
     if(maior=="fogo"){
-        texto="Sua respiração é: Respiração das Chamas"
+        texto="Your breathing style is: Flame Breathing"
         img="/static/img/descubra/respFogo.jpg"
     }
 
     if(maior=="trovao"){
-        texto="Sua respiração é: Respiração do Trovão"
+        texto="Your breathing style is: Thunder Breathing"
         img="/static/img/descubra/respTrovao.webp"
     }
 
     if(maior=="vento"){
-        texto="Sua respiração é: Respiração do Vento"
+        texto="Your breathing style is: Wind Breathing"
         img="/static/img/descubra/respVento.jpg"
     }
 
     document.getElementById("respiracaoFinal").innerText = texto
     document.getElementById("imagemRespiracao").src = img
 
-    const nomeRespiracao = texto.replace("Sua respiração é: ", "");
+    const nomeRespiracao = texto.replace("Your breathing style is: ", "");
     
     fetch('/descubra/salvar', {
         method: 'POST',
@@ -149,8 +149,8 @@ function mostrarResultado(){
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            console.log("Resultado salvo no perfil!");
+            console.log("Result saved to profile!");
         }
     })
-    .catch(error => console.error('Erro ao enviar resultado:', error));
+    .catch(error => console.error('Error sending result:', error));
 }

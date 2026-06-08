@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Criar Novo Usuário{% endblock %}
+{% block title %}Create New User{% endblock %}
 
 {% block extra_css %}
 {# Você pode precisar criar ou ajustar este arquivo CSS para estilizar o formulário #}
@@ -8,11 +8,11 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="page-title">Criar Novo Usuário</h1>
+    <h1 class="page-title">Create New User</h1>
 
     <form method="POST" action="{{ url_for('admin.create_user_admin') }}" class="form-container">
         <div class="form-group">
-            <label for="nome">Nome:</label>
+            <label for="nome">Name:</label>
             <input type="text" id="nome" name="nome" required>
         </div>
 
@@ -22,21 +22,21 @@
         </div>
 
         <div class="form-group">
-            <label for="senha">Senha:</label>
+            <label for="senha">Password:</label>
             <input type="password" id="senha" name="senha" required>
         </div>
 
         <div class="form-group">
-            <label for="confirmar_senha">Confirmar Senha:</label>
+            <label for="confirmar_senha">Confirm Password:</label>
             <input type="password" id="confirmar_senha" name="confirmar_senha" required>
         </div>
 
         <div class="form-group checkbox-group">
             <input type="checkbox" id="is_admin" name="is_admin" value="1">
-            <label for="is_admin">Tornar Administrador</label>
+            <label for="is_admin">Make Administrator</label>
         </div>
 
-        <button type="submit" class="btn-submit">Criar Usuário</button>
+        <button type="submit" class="btn-submit">Create User</button>
     </form>
 </div>
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Enviar Fanart{% endblock %}
+{% block title %}Submit Fan Art{% endblock %}
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/fanart.css') }}">
@@ -8,24 +8,24 @@
 {% block content %}
 <div class="perfil-container">
     <div class="perfil-header">
-        <h1 class="fonte-dms">Compartilhe sua Arte</h1>
-        <p>Mostre seu talento para outros caçadores!</p>
+        <h1 class="fonte-dms">Share your Art</h1>
+        <p>Show your talent to other slayers!</p>
     </div>
 
     <section class="perfil-edit">
         <form action="{{ url_for('user.enviar_fanart') }}" method="POST" enctype="multipart/form-data">
-            <input type="text" name="titulo" placeholder="Título da sua Fanart" required>
-            <textarea name="descricao" placeholder="Conte um pouco sobre sua arte..."></textarea>
+            <input type="text" name="titulo" placeholder="Fan Art Title" required>
+            <textarea name="descricao" placeholder="Tell us a bit about your art..."></textarea>
             <select name="categoria" required style="background: #1a1a1a; border: 1px solid #444; color: white; padding: 12px; border-radius: 5px;">
-                <option value="" disabled selected>Escolha uma Categoria</option>
-                <option value="Personagens">Personagens</option>
-                <option value="Cenários">Cenários</option>
-                <option value="Combate">Combate</option>
-                <option value="Outros">Outros</option>
+                <option value="" disabled selected>Choose a Category</option>
+                <option value="Personagens">Characters</option>
+                <option value="Cenários">Scenery</option>
+                <option value="Combate">Combat</option>
+                <option value="Outros">Others</option>
             </select>
-            <label for="imagem">Selecione a Imagem:</label>
+            <label for="imagem">Select Image:</label>
             <input type="file" name="imagem" accept="image/*" required>
-            <button type="submit" class="btn-save">Publicar Fanart</button>
+            <button type="submit" class="btn-save">Publish Fan Art</button>
         </form>
     </section>
 </div>

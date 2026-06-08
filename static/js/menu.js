@@ -36,7 +36,7 @@ window.addEventListener('click', function(e) {
 });
 
 function confirmarRemocao() {
-    return confirm("Tem certeza que deseja remover sua foto de perfil e voltar para a imagem padrão?");
+    return confirm("Are you sure you want to remove your profile picture and return to the default image?");
 }
 
 // Lógica para abrir imagens de fanarts em tela cheia

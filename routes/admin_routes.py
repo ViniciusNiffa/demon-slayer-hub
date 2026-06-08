@@ -52,9 +52,9 @@ def edit_user(user_id):
             file.save(os.path.join(UPLOAD_FOLDER, filename))
 
         if update_user(user_id, nome, email, filename, biografia, respiracao_tipo):
-            flash("Usuário atualizado com sucesso!", "sucesso")
+            flash("User updated successfully!", "sucesso")
         else:
-            flash("Erro ao atualizar usuário.", "perigo")
+            flash("Error updating user.", "perigo")
 
         return redirect(url_for('admin.admin'))
     
@@ -64,11 +64,11 @@ def edit_user(user_id):
 @admin_required
 def delete(user_id):
     if session.get('user_id') == user_id:
-        flash("Erro: Você não pode deletar sua própria conta administrativa.", "perigo")
+        flash("Error: You cannot delete your own administrative account.", "perigo")
         return redirect(url_for('admin.admin'))
     
     if delete_user(user_id):
-        flash("Usuário removido com sucesso.", "sucesso")
+        flash("User removed successfully.", "sucesso")
     return redirect(url_for('admin.admin'))
 
 @admin_bp.route('/admin/create_user', methods=['GET', 'POST'])
@@ -83,21 +83,21 @@ def create_user_admin():
         is_admin = 1 if request.form.get('is_admin') else 0
 
         if not nome or not email or not senha or not confirmar_senha:
-            flash("Todos os campos são obrigatórios.", "perigo")
+            flash("All fields are required.", "perigo")
             return render_template('admin_create_user.html')
 
         if get_user_by_email(email):
-            flash("Este e-mail já está sendo usado por outro membro da corporação.", "perigo")
+            flash("This email is already being used by another member of the corporation.", "perigo")
             return render_template('admin_create_user.html')
         
         if senha != confirmar_senha:
-            flash("As senhas não coincidem!", "perigo")
+            flash("Passwords do not match!", "perigo")
             return render_template('admin_create_user.html')
         
         if create_user(nome, email, senha, is_admin=is_admin):
-            flash(f"Usuário '{nome}' criado com sucesso!", "sucesso")
+            flash(f"User '{nome}' created successfully!", "sucesso")
             return redirect(url_for('admin.admin'))
         else:
-            flash("Houve um erro técnico ao criar o usuário.", "perigo")
+            flash("Technical error occurred while creating user.", "perigo")
 
     return render_template('admin_create_user.html')

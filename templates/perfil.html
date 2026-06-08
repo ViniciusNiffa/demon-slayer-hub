@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Perfil de {{ user.nome }}{% endblock %}
+{% block title %}Profile of {{ user.nome }}{% endblock %}
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/fanart.css') }}">
@@ -9,47 +9,47 @@
 <div class="perfil-container">
     <div class="perfil-header">
         {% if user.foto and user.foto not in ['None', 'default.png'] %}
-            <img src="{{ url_for('static', filename='uploads/' + user.foto) }}" alt="Foto de {{ user.nome }}" class="perfil-foto {{ 'foto-padrao' if 'default.png' in user.foto else '' }}">
+            <img src="{{ url_for('static', filename='uploads/' + user.foto) }}" alt="Photo of {{ user.nome }}" class="perfil-foto {{ 'foto-padrao' if 'default.png' in user.foto else '' }}">
         {% else %}
-            <img src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="Foto de {{ user.nome }}" class="perfil-foto foto-padrao">
+            <img src="{{ url_for('static', filename='uploads/pastaBanner/default.png') }}" alt="Photo of {{ user.nome }}" class="perfil-foto foto-padrao">
         {% endif %}
         
         <h1 class="fonte-dms">{{ user.nome }}</h1>
-        <p class="badge-respiracao">{{ user.respiracao_tipo or 'Sem respiração definida' }}</p>
+        <p class="badge-respiracao">{{ user.respiracao_tipo or 'No breathing style defined' }}</p>
         
         {% if session.get('user_id') == user.id and user.foto and user.foto != 'None' and 'default.png' not in user.foto %}
         <form action="{{ url_for('user.remover_foto') }}" method="POST" style="margin-top: 10px;" onsubmit="return confirmarRemocao()">
-            <button id="remover-foto" type="submit" class="btn-delete-photo"><img src="{{ url_for('static', filename='uploads/perfil/lixeira.png') }}" alt=""> Remover Foto de Perfil</button>
+            <button id="remover-foto" type="submit" class="btn-delete-photo"><img src="{{ url_for('static', filename='uploads/perfil/lixeira.png') }}" alt=""> Remove Profile Picture</button>
         </form>
         {% endif %}
     </div>
 
     {% if session.get('user_id') == user.id %}
     <section class="perfil-edit">
-        <h2 class="fonte-dms">Editar Meus Dados</h2>
+        <h2 class="fonte-dms">Edit My Data</h2>
         <form action="{{ url_for('user.perfil') }}" method="POST" enctype="multipart/form-data">
-            <input type="text" name="nome" value="{{ user.nome }}" placeholder="Nome">
-            <input type="email" name="email" value="{{ user.email }}" placeholder="E-mail">
-            <textarea name="biografia" placeholder="Sua biografia...">{{ user.biografia or '' }}</textarea>
+            <input type="text" name="nome" value="{{ user.nome }}" placeholder="Name">
+            <input type="email" name="email" value="{{ user.email }}" placeholder="Email">
+            <textarea name="biografia" placeholder="Your biography...">{{ user.biografia or '' }}</textarea>
             
-            <label for="respiracao_tipo">Tipo de Respiração:</label>
+            <label for="respiracao_tipo">Breathing Style:</label>
             <input type="text" name="respiracao_tipo" value="{{ user.respiracao_tipo or '' }}" readonly>
-            <small>Faça o quiz para mudar sua respiração!</small>
+            <small>Take the quiz to change your breathing style!</small>
 
-            <label for="foto">Alterar Foto:</label>
+            <label for="foto">Change Photo:</label>
             <input type="file" name="foto">
             
-            <button type="submit" class="btn-save">Salvar Alterações</button>
+            <button type="submit" class="btn-save">Save Changes</button>
         </form>
     </section>
     {% else %}
     <section class="perfil-bio">
-        <p>{{ user.biografia or 'Este caçador ainda não escreveu uma biografia.' }}</p>
+        <p>{{ user.biografia or "This slayer hasn't written a biography yet." }}</p>
     </section>
     {% endif %}
 
     <hr>
-    <h2>Fanarts Publicadas</h2>
+    <h2>Published Fan Arts</h2>
     <div class="grid-fanarts">
         {% for fanart in fanarts %}
         <div class="card-fanart">
@@ -59,9 +59,9 @@
                 <form action="{{ url_for('fanart.curtir', fanart_id=fanart.id) }}" method="POST">
                     <button type="submit" class="btn-like {{ 'active' if fanart.curtiu else '' }}">
                         {% if fanart['curtiu'] %}
-                            <img src="{{ url_for('static', filename='uploads/fanarts/like.png') }}" class="icon-like" alt="Curtido">
+                            <img src="{{ url_for('static', filename='uploads/fanarts/like.png') }}" class="icon-like" alt="Liked">
                         {% else %}
-                            <img src="{{ url_for('static', filename='uploads/fanarts/sem_like.png') }}" class="icon-like" alt="Não Curtido">
+                            <img src="{{ url_for('static', filename='uploads/fanarts/sem_like.png') }}" class="icon-like" alt="Not Liked">
                         {% endif %}
                         <span>{{ fanart['total_likes'] or 0 }}</span>
                     </button>

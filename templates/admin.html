@@ -4,23 +4,23 @@
 
 <div class="admin-container">
     <header class="admin-header">
-        <h1><i class="fas fa-user-shield"></i> Painel do Admin</h1>
-        <p>Gerenciamento da Corporação (Total de Usuários: {{ total }})</p>
+        <h1><i class="fas fa-user-shield"></i> Admin Panel</h1>
+        <p>Corporation Management (Total Users: {{ total }})</p>
     </header>
 
     <section class="admin-controls">
         <div class="admin-actions-top" style="margin-bottom: 20px;">
             <a href="{{ url_for('admin.create_user_admin') }}" class="btn-save" style="text-decoration: none; display: inline-block;">
-                <i class="fas fa-user-plus"></i> Recrutar Novo Membro
+                <i class="fas fa-user-plus"></i> Recruit New Member
             </a>
         </div>
         <form action="{{ url_for('admin.admin') }}" method="GET" class="admin-search-form">
-            <input type="text" name="search" placeholder="Buscar por nome ou email..." value="{{ search }}">
+            <input type="text" name="search" placeholder="Search by name or email..." value="{{ search }}">
             <select name="order" onchange="this.form.submit()">
-                <option value="nome" {% if order == 'nome' %}selected{% endif %}>Ordenar por Nome</option>
-                <option value="email" {% if order == 'email' %}selected{% endif %}>Ordenar por Email</option>
+                <option value="nome" {% if order == 'nome' %}selected{% endif %}>Sort by Name</option>
+                <option value="email" {% if order == 'email' %}selected{% endif %}>Sort by Email</option>
             </select>
-            <button type="submit" class="btn-admin-search">Pesquisar</button>
+            <button type="submit" class="btn-admin-search">Search</button>
         </form>
     </section>
 
@@ -29,11 +29,11 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Foto</th>
-                    <th>Nome</th>
+                    <th>Photo</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Admin</th>
-                    <th>Ações</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,16 +48,16 @@
                     <td>{{ user.email }}</td>
                     <td>
                         <span class="badge {% if user.is_admin %}badge-admin{% else %}badge-user{% endif %}">
-                            {{ 'Sim' if user.is_admin else 'Não' }}
+                            {{ 'Yes' if user.is_admin else 'No' }}
                         </span>
                     </td>
                     <td class="admin-actions">
-                        <a href="{{ url_for('admin.edit_user', user_id=user.id) }}" class="btn-edit" title="Editar Usuário">
+                        <a href="{{ url_for('admin.edit_user', user_id=user.id) }}" class="btn-edit" title="Edit User">
                             <i class="fas fa-edit"></i>
                         </a>
                         {% if session.user_id != user.id %}
                         <a href="{{ url_for('admin.delete', user_id=user.id) }}" class="btn-delete" 
-                           onclick="return confirm('Tem certeza que deseja banir este membro da corporação?')" title="Excluir Usuário">
+                           onclick="return confirm('Are you sure you want to ban this member from the corporation?')" title="Delete User">
                             <i class="fas fa-trash"></i>
                         </a>
                         {% endif %}
@@ -71,13 +71,13 @@
     {% if total_pages > 1 %}
     <div class="pagination">
         {% if page > 1 %}
-            <a href="{{ url_for('admin.admin', page=page-1, search=search, order=order) }}">&laquo; Anterior</a>
+            <a href="{{ url_for('admin.admin', page=page-1, search=search, order=order) }}">&laquo; Previous</a>
         {% endif %}
         
-        <span class="page-info">Página {{ page }} de {{ total_pages }}</span>
+        <span class="page-info">Page {{ page }} of {{ total_pages }}</span>
 
         {% if page < total_pages %}
-            <a href="{{ url_for('admin.admin', page=page+1, search=search, order=order) }}">Próxima &raquo;</a>
+            <a href="{{ url_for('admin.admin', page=page+1, search=search, order=order) }}">Next &raquo;</a>
         {% endif %}
     </div>
     {% endif %}

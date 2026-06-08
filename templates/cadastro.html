@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Demon Slayer Hub | Cadastro</title>
+    <title>Demon Slayer Hub | Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='uploads/favicon-16x16.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -28,32 +28,32 @@
       {% endif %}
     {% endwith %}
 
-    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='uploads/voltar.png') }} " id="voltar" title="Voltar" alt="Voltar"></a>
+    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='uploads/voltar.png') }} " id="voltar" title="Back" alt="Back"></a>
     
     <section id="cadastro">
         <form id="formCadastro" action="{{ url_for('auth.cadastro') }}" method="POST">
-            <h1>Cadastro de Usuário</h1>
+            <h1>User registration</h1>
             <div class="dados">
-                <label>Usuário</label>
-                <input type="text" name="nome" placeholder="Seu nome de caçador" required>
+                <label>User</label>
+                <input type="text" name="nome" placeholder="Your slayer name" required>
             </div>
 
             <div class="dados">
                 <label>E-mail</label>
-                <input type="email" name="email" placeholder="exemplo@email.com" required>
+                <input type="email" name="email" placeholder="example@email.com" required>
             </div>
 
             <div class="dados">
-                <label>Senha</label>
-                <input type="password" name="senha" placeholder="Crie uma senha" required>
+                <label>Password</label>
+                <input type="password" name="senha" placeholder="Create a password" required>
             </div>
 
             <div class="dados">
-                <label>Confirmar Senha</label>
-                <input type="password" name="confirmar_senha" placeholder="Repita a senha" required>
+                <label>Confirm password</label>
+                <input type="password" name="confirmar_senha" placeholder="Repeat password" required>
             </div>
 
-            <button type="submit" id="botao">Cadastrar</button>
+            <button type="submit" id="botao">Sign up</button>
         </form>
     </section>
     <script src="{{ url_for('static', filename='js/global.js') }}"></script>
